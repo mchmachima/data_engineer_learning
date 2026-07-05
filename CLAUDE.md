@@ -167,6 +167,40 @@ Triggered when the user asks about their plan, schedule, timeline, or weekly goa
 
 ---
 
+## Git Commit Rules
+
+- **Never commit automatically.** Only create a commit when the user explicitly asks.
+- Use the **Conventional Commits** format: `type(scope): subject`
+
+**Types:**
+
+| Type    | Use for                                               |
+| ------- | ----------------------------------------------------- |
+| `docs`  | Adding or editing lesson notes / study plan (default) |
+| `chore` | Reorganizing folders, renaming files, housekeeping    |
+| `fix`   | Correcting an error in notes, filenames, or structure |
+
+**Scope (optional):** the course/module the commit touches, e.g. `C02-M03`.
+
+**Subject rules:**
+
+- Imperative mood ("add", not "added"/"adds")
+- Lower-case start, no trailing period
+- Keep under ~72 characters
+
+**Examples:**
+
+- `docs(C02-M03): add Conditions and Branching lesson notes`
+- `docs: update study plan for weeks 5–8`
+- `chore: reorganize module folders under C02`
+- `fix(C02-M02): correct filename typo in Tuples note`
+
+- End every Claude-authored commit message with the required trailer:
+  `Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>`
+- Stage only the files relevant to the change; do not blanket `git add .` unless the user asks.
+
+---
+
 ## Folder and File Structure
 
 ```
