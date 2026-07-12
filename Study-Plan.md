@@ -1,18 +1,18 @@
 # Data Engineering Study Plan
 
-**Updated:** 2026-06-16
-**Current position:** IBM DE Cert — Course 02 complete / Course 03 starting
+**Updated:** 2026-07-12
+**Current position:** IBM DE Cert — Course 04, Module 01 (Relational Database Concepts) in progress
 **Target:** Complete IBM cert by Sep–Oct 2026 → Job search → Azure Databricks
 
 ---
 
 ## 🎯 High-Level Milestones
 
-| Milestone                      | Target Date    |
-| ------------------------------ | -------------- |
-| Finish IBM DE Cert (Course 13) | Early Oct 2026 |
-| Resume + interview prep        | Oct 2026       |
-| Begin Azure Databricks course  | Oct–Nov 2026   |
+| Milestone                      | Target Date  |
+| ------------------------------ | ------------ |
+| Finish IBM DE Cert (Course 13) | Early Nov 2026 |
+| Resume + interview prep        | Nov 2026     |
+| Begin Azure Databricks course  | Dec 2026     |
 
 ---
 
@@ -22,8 +22,8 @@
 | --- | ------------------------------------------------------ | ---------- | -------------- |
 | 1   | Introduction to Data Engineering                       | 1          | ✅ Done        |
 | 2   | Python for Data Science, AI & Development              | 1–2        | ✅ Done        |
-| 3   | Python Project for Data Engineering                    | 1          | 🔄 In Progress |
-| 4   | Introduction to Relational Databases (RDBMS)           | 1–2        | ⬜ Pending     |
+| 3   | Python Project for Data Engineering                    | 1          | ✅ Done        |
+| 4   | Introduction to Relational Databases (RDBMS)           | 1–2        | 🔄 In Progress |
 | 5   | Databases and SQL for Data Science with Python         | 2          | ⬜ Pending     |
 | 6   | Linux Commands and Shell Scripting                     | 1          | ⬜ Pending     |
 | 7   | Relational Database Administration (DBA)               | 1–2        | ⬜ Pending     |
@@ -59,38 +59,47 @@
 
 ---
 
-### Week 3 — Jun 16–22 _(Current week)_
+### ✅ Week 3 — Jun 27 – Jul 10
 
-**Goal:** Course 03 — Python Project for Data Engineering
+**Goal:** Course 03 — Python Project for Data Engineering (complete)
 
 - [x] Module 01: Extract, Transform, Load (ETL)
-- [ ] Module 02: Final Project
-- [ ] Module 03 (Optional): Python Coding Practices and Packaging Concepts
+- [x] Module 02: Final Project
+- [ ] Module 03 (Optional): Python Coding Practices and Packaging Concepts — optional, revisit later if time allows
 
 ---
 
-### Week 4 — Jun 23–29
+### Week 4 — Jul 11–17 _(Current week)_
 
-**Goal:** Course 04 — Introduction to Relational Databases (RDBMS)
+**Goal:** Course 04 — Module 01: Relational Database Concepts
 
-- [ ] Relational data concepts, data models, schemas
-- [ ] Introduction to SQL
-- [ ] Save notes: `IBM-DE_C04_M0X_<Title>.md`
+- [ ] Module 01: Relational Database Concepts
 
 ---
 
-### Week 5 — Jun 30 – Jul 6
+### Week 5 — Jul 18–24
 
-**Goal:** Course 04 complete + Course 05 start
+**Goal:** Course 04 — finish (Module 02: Using Relational Databases, Module 03: MySQL and PostgreSQL, Module 04: Final Project and Assessment)
 
-- [ ] Course 04: Finish remaining modules
-- [ ] Course 05: SQL basics — SELECT, WHERE, JOINs, aggregations
+- [ ] Module 02: Using Relational Databases
+- [ ] Module 03: MySQL and PostgreSQL
+- [ ] Module 04: Final Project and Assessment
+- [ ] Start Course 05 if time allows
 
 ---
 
-### Week 6 — Jul 7–13
+### Week 6 — Jul 25–31
 
-**Goal:** Finish Course 05 — Databases and SQL for Data Science with Python
+**Goal:** Course 05 — SQL basics
+
+- [ ] SQL basics — SELECT, WHERE, JOINs, aggregations
+- [ ] Save notes: `IBM-DE_C05_M0X_<Title>.md`
+
+---
+
+### Week 7 — Aug 1–7
+
+**Goal:** Course 05 — finish (Advanced SQL + Python DB connections)
 
 - [ ] Advanced SQL — subqueries, stored procedures, views
 - [ ] Connecting databases with Python (ibm_db, SQLite, SQLAlchemy)
@@ -98,7 +107,7 @@
 
 ---
 
-### Week 7 — Jul 14–20
+### Week 8 — Aug 8–14
 
 **Goal:** Course 06 — Linux Commands and Shell Scripting
 
@@ -109,37 +118,44 @@
 
 ---
 
-### Week 8 — Jul 21–27
+### Week 9 — Aug 15–21
 
-**Goal:** Course 07 — Relational Database Administration (DBA)
+**Goal:** Course 07 — Relational Database Administration (DBA), part 1
 
 - [ ] Backup and recovery strategies
 - [ ] Performance tuning and indexing
-- [ ] User management and security
 - [ ] Save notes: `IBM-DE_C07_M0X_<Title>.md`
 
 ---
 
-### Week 9 — Jul 28 – Aug 3
+### Week 10 — Aug 22–28
 
-**Goal:** Course 07 complete + Course 08 start
+**Goal:** Course 07 — finish
 
-- [ ] Course 07: Finish remaining modules
-- [ ] Course 08: ETL with Shell scripting
+- [ ] User management and security
+- [ ] Finish remaining Course 07 modules
 
 ---
 
-### Week 10 — Aug 4–10
+### Week 11 — Aug 29 – Sep 4
 
-**Goal:** Finish Course 08 — ETL and Data Pipelines with Shell, Airflow and Kafka
+**Goal:** Course 08 — ETL and Data Pipelines, part 1 (Airflow)
 
 - [ ] Apache Airflow — DAGs, operators, scheduling
-- [ ] Apache Kafka — topics, producers, consumers, streaming
 - [ ] Save notes: `IBM-DE_C08_M0X_<Title>.md`
 
 ---
 
-### Week 11 — Aug 11–17
+### Week 12 — Sep 5–11
+
+**Goal:** Course 08 — finish (Kafka)
+
+- [ ] Apache Kafka — topics, producers, consumers, streaming
+- [ ] Finish remaining Course 08 modules
+
+---
+
+### Week 13 — Sep 12–18
 
 **Goal:** Course 09 — Data Warehousing and BI Analytics
 
@@ -149,38 +165,38 @@
 
 ---
 
-### Week 12 — Aug 18–24
+### Week 14 — Sep 19–25
 
-**Goal:** Course 09 complete + Course 10 start
+**Goal:** Course 10 — NoSQL Databases
 
-- [ ] Course 09: Finish remaining modules
-- [ ] Course 10: NoSQL concepts, MongoDB basics
-
----
-
-### Week 13 — Aug 25–31
-
-**Goal:** Finish Course 10 + Start Course 11
-
-- [ ] Course 10: Cassandra, Redis, graph DBs
-- [ ] Course 10: Save notes: `IBM-DE_C10_M0X_<Title>.md`
-- [ ] Course 11: Big Data concepts and Hadoop
+- [ ] NoSQL concepts, MongoDB basics
+- [ ] Cassandra, Redis, graph DBs
+- [ ] Save notes: `IBM-DE_C10_M0X_<Title>.md`
 
 ---
 
-### Week 14 — Sep 1–7
+### Week 15 — Sep 26 – Oct 2
 
-**Goal:** Finish Course 11 — Big Data with Spark and Hadoop
+**Goal:** Course 11 — Big Data with Spark and Hadoop, part 1
 
 - [ ] Apache Spark — RDDs, DataFrames, Spark SQL
 - [ ] HDFS deep dive
-- [ ] Save notes: `IBM-DE_C11_M0X_<Title>.md`
 
 ---
 
-### Week 15 — Sep 8–14
+### Week 16 — Oct 3–9
 
-**Goal:** Course 12 — Machine Learning with Apache Spark
+**Goal:** Course 11 — finish + Course 12 start
+
+- [ ] Finish remaining Course 11 modules
+- [ ] Save notes: `IBM-DE_C11_M0X_<Title>.md`
+- [ ] Course 12: Spark MLlib intro
+
+---
+
+### Week 17 — Oct 10–16
+
+**Goal:** Course 12 — Machine Learning with Apache Spark (finish)
 
 - [ ] Spark MLlib — classification, regression, clustering
 - [ ] ML pipelines and model evaluation
@@ -188,9 +204,9 @@
 
 ---
 
-### Week 16 — Sep 15–21
+### Week 18 — Oct 17–23
 
-**Goal:** Start Course 13 — Capstone Project
+**Goal:** Course 13 — Capstone Project (start)
 
 - [ ] Set up capstone environment
 - [ ] Data collection and ingestion phase
@@ -198,16 +214,16 @@
 
 ---
 
-### Week 17 — Sep 22–28
+### Week 19 — Oct 24–30
 
-**Goal:** Course 13 continued — Capstone Project
+**Goal:** Course 13 — Capstone Project (continued)
 
 - [ ] Data warehouse and NoSQL integration
 - [ ] Big data processing phase
 
 ---
 
-### Week 18 — Sep 29 – Oct 5
+### Week 20 — Oct 31 – Nov 6
 
 **Goal:** Complete Course 13 and earn certificate 🎓
 
@@ -221,6 +237,6 @@
 
 | Activity                                            | Target       |
 | --------------------------------------------------- | ------------ |
-| Update resume and LinkedIn with DE skills           | Oct 2026     |
-| Prepare for DE interview questions                  | Oct–Nov 2026 |
-| Begin Mastering Azure Databricks for Data Engineers | Nov 2026     |
+| Update resume and LinkedIn with DE skills           | Nov 2026     |
+| Prepare for DE interview questions                  | Nov–Dec 2026 |
+| Begin Mastering Azure Databricks for Data Engineers | Dec 2026     |
