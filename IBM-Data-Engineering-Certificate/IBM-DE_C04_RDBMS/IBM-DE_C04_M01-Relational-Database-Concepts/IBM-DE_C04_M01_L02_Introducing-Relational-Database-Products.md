@@ -2,12 +2,12 @@
 
 `Tags: RDBMS, database, Db2, MySQL, PostgreSQL, normalization`
 
-| Field             | Value                                          |
-| ----------------- | ----------------------------------------------- |
-| **Certificate**   | IBM Data Engineering Professional Certificate  |
-| **Course**        | C04 Introduction to Relational Databases (RDBMS) |
-| **Module**        | M01 Relational Database Concepts               |
-| **Date studied**  | 2026-07-30                                      |
+| Field            | Value                                            |
+| ---------------- | ------------------------------------------------ |
+| **Certificate**  | IBM Data Engineering Professional Certificate    |
+| **Course**       | C04 Introduction to Relational Databases (RDBMS) |
+| **Module**       | M01 Relational Database Concepts                 |
+| **Date studied** | 2026-07-30                                       |
 
 ---
 
@@ -21,7 +21,7 @@
 - [Db2](#db2)
 - [MySQL](#mysql)
 - [PostgreSQL](#postgresql)
-- [Deep Dive into Advanced Relational Model Concepts](#deep-dive-into-advanced-relational-model-concepts)
+- [Database normalization](#database-normalization)
 - [📖 Key Terms & Glossary](#-key-terms--glossary)
 - [❓ My Questions & Gaps](#-my-questions--gaps)
 - [🔗 Resources](#-resources)
@@ -101,6 +101,7 @@ Deployment topology คือรูปแบบการจัดวางอง
 Db2 (Database 2) เปิดตัวโดย IBM ครั้งแรกในปี 1983 บน mainframe และต่อมาพัฒนาให้รองรับหลายแพลตฟอร์ม (OS/2, Unix, Linux, Windows) โดยใช้ codebase เดียวกันทำให้ย้าย application ข้ามระบบปฏิบัติการได้ง่าย ปัจจุบัน Db2 เป็นตระกูลผลิตภัณฑ์ที่ประกอบด้วย Db2 database, Db2 Warehouse, Db2 on Cloud, Db2 Warehouse on Cloud, Db2 Big SQL และ Db2 for z/OS
 
 **คุณสมบัติเด่น**:
+
 - ใช้ AI/machine learning ช่วยเพิ่มประสิทธิภาพ query
 - **Column store** เพิ่มประสิทธิภาพงาน analytic โดย query เฉพาะคอลัมน์ที่ต้องการ
 - **Data skipping** ข้ามการประมวลผลข้อมูลที่ไม่จำเป็นต่อ query
@@ -111,6 +112,7 @@ Db2 (Database 2) เปิดตัวโดย IBM ครั้งแรกใ�
 **การ scale**: สามารถขยาย storage/power ไปยัง cloud ชั่วคราวเพื่อรองรับ peak, ปรับ power/storage แยกกันได้ใน managed cloud deployment หรือใช้ **database partitioning** ใน Db2 Warehouse เพื่อกระจายข้อมูลข้าม partition/server รองรับ massively parallel processing (MPP)
 
 **ผลิตภัณฑ์หลักในตระกูล**:
+
 - **Db2 database**: RDBMS แบบ on-premises เหมาะกับ OLTP รองรับ Linux, Unix, Windows
 - **Db2 Warehouse**: data warehouse on-premises รองรับ analytics ขั้นสูง, MPP, machine learning
 - **Db2 on Cloud**: fully managed cloud SQL database คุณสมบัติใกล้เคียง Db2 database
@@ -133,11 +135,13 @@ MySQL เป็น object-relational database management system ที่มี�
 **คุณสมบัติ**: รองรับ Unix, Windows, Linux เขียน client application ได้หลายภาษา ใช้ SQL มาตรฐานพร้อม extension เพิ่มเติม (เช่นคำสั่ง `LOAD DATA` สำหรับ import ข้อมูลจากไฟล์ text) รองรับทั้งข้อมูลเชิงสัมพันธ์และ JSON
 
 **Storage engines**:
+
 - **InnoDB** (ค่า default): รองรับ transaction, row-level locking, clustered index บน primary key, foreign key constraint ให้ performance และ reliability ที่สมดุล
 - **MyISAM**: เหมาะกับ workload ที่อ่านมากกว่าเขียน (เช่น data warehouse, web application) ใช้ table-level locking ซึ่งลดประสิทธิภาพในสภาพแวดล้อมที่ read-write พร้อมกันมาก
 - **NDB**: รองรับการรัน MySQL server หลาย instance เป็น cluster เหมาะกับงานที่ต้องการ availability และ redundancy สูง
 
 **Clustering options**:
+
 1. **InnoDB + Group Replication**: มี primary server เดียวสำหรับ read-write และ secondary server หลายตัว ใช้ MySQL Router ทำ load balancing และ reconnect client อัตโนมัติเมื่อ server ล่ม
 2. **MySQL Cluster Edition + NDB storage engine**: หลาย MySQL server node เข้าถึงชุด data node ที่มักเก็บใน memory เพิ่ม redundancy (หลาย data node) และ scalability (หลาย server node)
 
@@ -152,6 +156,7 @@ PostgreSQL มีต้นกำเนิดจากโปรเจกต์ PO
 รองรับโครงสร้างมาตรฐานของ relational database (keys, transactions, views, functions, stored procedures) รวมถึงฟีเจอร์แบบ NoSQL เช่น JSON (ข้อมูลมีโครงสร้าง) และ HSTORE (ข้อมูลไม่มีลำดับชั้น)
 
 **Replication**:
+
 - **Two-node synchronous replication**: เก็บสำเนาข้อมูลไว้ที่ node ที่สอง ทุกการเปลี่ยนแปลงที่ node 1 จะถูก apply ที่ node 2 ด้วย แชร์ read load ได้ และหาก node 1 ล่ม node 2 จะรับ traffic แทนได้ทันที
 - **Multi-node asynchronous replication**: master node กระจายการเปลี่ยนแปลงไปยัง read-only replica หลายตัวเพื่อ scalability หาก node หลักล่มก็แทนที่ด้วย replica ตัวใดตัวหนึ่งได้
 - **Commercial extension** เช่น EDB PostgreSQL Replication Server รองรับ multi-master read/write replication ให้หลาย database เขียน/replicate ข้อมูลระหว่างกันได้
@@ -160,28 +165,41 @@ PostgreSQL มีต้นกำเนิดจากโปรเจกต์ PO
 
 ---
 
-## Deep Dive into Advanced Relational Model Concepts
+## Database normalization
 
-เนื้อหาส่วนนี้เป็นบทความเสริม (reading) ครอบคลุมแนวคิดสำคัญ 3 เรื่องที่เป็นรากฐานของการ normalize ฐานข้อมูล
+การ Normalize ฐานข้อมูล คือกระบวนการจัดโครงสร้างข้อมูลให้อยู่ในรูปแบบที่เหมาะสม โดยใช้หลักการของความสัมพันธ์ระหว่างข้อมูล (Dependencies) และการกำหนดคีย์ (Keys) เพื่อจัดระเบียบตารางให้มีประสิทธิภาพสูงสุด
 
-### Functional Dependencies (FDs)
+**ความสำคัญของการทำ Normalization มีดังนี้:**
 
-FD คือความสัมพันธ์ที่ค่าของ attribute หนึ่ง (determinant) กำหนดค่าของ attribute อีกตัวหนึ่ง (dependent) ได้อย่างเฉพาะเจาะจง เขียนแทนด้วย `X -> Y` เช่น `EmployeeID -> EmployeeName` (รู้ EmployeeID ก็รู้ชื่อพนักงานได้แน่นอน)
+1. **ลดความซ้ำซ้อนของข้อมูล (Reduce Redundancy):** ช่วยป้องกันการเก็บข้อมูลเดิมซ้ำ ๆ หลายครั้งในที่ต่าง ๆ ซึ่งเป็นจุดประสงค์หลักของการใช้ Functional Dependencies (FDs) เข้ามาช่วยออกแบบ
+2. **รักษาความถูกต้องของข้อมูล (Data Integrity):** ช่วยให้มั่นใจว่าข้อมูลในระบบมีความถูกต้องและสอดคล้องกัน หากเราละเลยความสัมพันธ์บางอย่าง เช่น Multi-Valued Dependencies (MVDs) อาจนำไปสู่การบันทึกข้อมูลที่ผิดพลาดได้
+3. **เพิ่มประสิทธิภาพในการสืบค้น (Query Performance):** การกำหนด Candidate Keys ที่ดีจะช่วยในการทำ Indexing ซึ่งส่งผลให้การค้นหาข้อมูลทำได้รวดเร็วขึ้น
+4. **ป้องกันข้อมูลซ้ำซ้อนและระบุตัวตนของข้อมูลได้ชัดเจน:** การใช้ Candidate Key ที่มีความเป็นเอกลักษณ์ (Uniqueness) และมีขนาดเล็กที่สุด (Minimality) จะช่วยบังคับให้แต่ละแถวในตารางไม่ซ้ำกัน และระบุแต่ละรายการได้อย่างเฉพาะเจาะจง
+5. **จัดระเบียบโครงสร้างให้ยืดหยุ่น:** ช่วยในการสร้างความสัมพันธ์ระหว่างตารางอย่างเป็นระบบ ทำให้ง่ายต่อการบำรุงรักษาและขยายระบบในอนาคต
 
-คุณสมบัติของ FD:
-- **Reflexivity**: `X -> X` (attribute กำหนดค่าตัวเองเสมอ)
-- **Transitivity**: ถ้า `X -> Y` และ `Y -> Z` แล้ว `X -> Z`
-- **Closure**: ชุด FD ขั้นต่ำที่สามารถอนุมาน FD อื่น ๆ ทั้งหมดในความสัมพันธ์นั้นได้
+**สรุปง่าย ๆ คือ:** การ Normalize เป็นเหมือนการ "จัดบ้าน" ให้ข้อมูล โดยการแยกสิ่งของที่กระจัดกระจายไปไว้ในที่ที่ถูกต้องตามความสัมพันธ์ของมัน เพื่อให้หาของง่าย (เร็ว) ไม่เก็บของซ้ำซ้อน (ประหยัดพื้นที่) และมั่นใจว่าของไม่หายหรือผิดเพี้ยน (ถูกต้อง)
 
-FD ช่วยรักษาความถูกต้องของข้อมูล ลดความซ้ำซ้อน และเป็นพื้นฐานของกระบวนการ normalization
+### Functional Dependencies (FDs) — "รู้ A แล้วจะรู้ B แน่นอน"
 
-### Multi-Valued Dependencies (MVDs)
+เป็นความสัมพันธ์ที่ค่าของข้อมูลชุดหนึ่ง (ตัวกำหนด หรือ Determinant) สามารถระบุค่าของอีกชุดหนึ่ง (ตัวที่ถูกกำหนด หรือ Dependent) ได้อย่างเฉพาะเจาะจง
 
-MVD ซับซ้อนกว่า FD คือ determinant หนึ่งตัวสามารถกำหนด "ชุดของค่า" ที่เป็นไปได้ของ dependent ได้ เขียนแทนด้วย `X ->> {Y1, Y2, ..., Yn}` เช่น `{EmployeeID} ->> {ProjectID}` — รู้ EmployeeID แล้วไม่ได้บอกโปรเจกต์เดียว แต่บอกว่าจะมีหลายแถวของโปรเจกต์ที่พนักงานคนนั้นเกี่ยวข้องด้วย MVD มีคุณสมบัติ reflexivity และ transitivity คล้าย FD แต่ไม่มีคุณสมบัติ closure การละเลย MVD อาจนำไปสู่ข้อมูลที่ไม่ถูกต้องได้
+- **สัญลักษณ์:** `X→Y`
+- **ตัวอย่าง:** ถ้าเรามีรหัสพนักงาน (`EmployeeID`) เราจะสามารถรู้ชื่อพนักงาน (EmployeeName) ของคนนั้นได้ทันทีและแน่นอน เช่น `EmployeeID` 1 คือ Alice เสมอ
+- **ทำไมต้องมี:** เพื่อช่วยรักษาความถูกต้องของข้อมูลและลดความซ้ำซ้อน
 
-### Candidate Keys
+### Multi-Valued Dependencies (MVDs) — "รู้ A แล้วจะรู้เซตของค่า B"
+
+แนวคิดนี้จะซับซ้อนกว่า FD เล็กน้อย คือการที่ข้อมูลตัวหนึ่งกำหนด "กลุ่มของค่า" ที่เป็นไปได้หลายค่า
+มักพบในความสัมพันธ์แบบ Many-to-Many
+
+- สัญลักษณ์: `X↠{Y1,Y2,...}`
+- ตัวอย่าง: รหัสพนักงานคนหนึ่งอาจจะทำงานหลายโปรเจกต์ ดังนั้น `EmployeeID` จึงกำหนดชุดของ ProjectID ได้หลายชุด เช่น `EmployeeID` 1 (Alice) ทำงานทั้ง Project 101 และ 102
+- ทำไมต้องมี: เพื่อจัดการความสัมพันธ์ที่ซับซ้อนและป้องกันไม่ให้ข้อมูลผิดพลาดจากการละเลยความสัมพันธ์แบบกลุ่มนี้
+
+### Candidate Keys — "บัตรประชาชนของแถวข้อมูล"
 
 Candidate key คือชุด attribute ขั้นต่ำ (minimal) ที่ระบุแต่ละแถวในตารางได้อย่างไม่ซ้ำกัน คุณสมบัติสำคัญ:
+
 - **Uniqueness**: ค่าที่ประกอบกันต้องระบุแถวได้เฉพาะเจาะจง ไม่ซ้ำ
 - **Minimality**: ไม่มี subset ย่อยของ candidate key ที่ระบุแถวได้เพียงพอแล้ว (ต้องเป็นชุดที่เล็กที่สุด)
 - ตารางหนึ่งอาจมี candidate key ได้มากกว่าหนึ่งชุด
@@ -205,45 +223,45 @@ Candidate key คือชุด attribute ขั้นต่ำ (minimal) ท�
 
 ### สรุปเปรียบเทียบ
 
-| ประเด็น | Functional Dependencies | Multi-Valued Dependencies (MVDs) | Candidate Keys |
-| --- | --- | --- | --- |
-| นิยาม | ความสัมพันธ์ระหว่าง attribute | ขยายแนวคิดไปสู่กลุ่มของ attribute | ชุด attribute ที่ระบุแถวได้ไม่ซ้ำกัน |
-| แก่นสาระ | ค่าบาง attribute ถูกกำหนดโดย attribute อื่น | ความสัมพันธ์ระหว่างชุดของ attribute | ระบุแต่ละแถวในตารางได้อย่างเฉพาะเจาะจง |
-| ตัวอย่าง | รู้ attribute หนึ่งแล้วหาอีก attribute ได้ | อธิบายว่าชุด attribute หนึ่งกำหนดอีกชุดอย่างไร | การรวมกันของ attribute ที่ระบุแต่ละ record ได้ |
-| จุดประสงค์ | รักษาความถูกต้องของข้อมูล ลดความซ้ำซ้อน | จัดระเบียบข้อมูลอย่างมีประสิทธิภาพ ป้องกันความสับสน | บังคับใช้ entity integrity constraint |
-| การใช้งาน | สำคัญต่อการทำ normalization | สำคัญต่อการรักษา data integrity | ใช้สร้างความสัมพันธ์ระหว่างตาราง |
+| ประเด็น    | Functional Dependencies                     | Multi-Valued Dependencies (MVDs)                    | Candidate Keys                                 |
+| ---------- | ------------------------------------------- | --------------------------------------------------- | ---------------------------------------------- |
+| นิยาม      | ความสัมพันธ์ระหว่าง attribute               | ขยายแนวคิดไปสู่กลุ่มของ attribute                   | ชุด attribute ที่ระบุแถวได้ไม่ซ้ำกัน           |
+| แก่นสาระ   | ค่าบาง attribute ถูกกำหนดโดย attribute อื่น | ความสัมพันธ์ระหว่างชุดของ attribute                 | ระบุแต่ละแถวในตารางได้อย่างเฉพาะเจาะจง         |
+| ตัวอย่าง   | รู้ attribute หนึ่งแล้วหาอีก attribute ได้  | อธิบายว่าชุด attribute หนึ่งกำหนดอีกชุดอย่างไร      | การรวมกันของ attribute ที่ระบุแต่ละ record ได้ |
+| จุดประสงค์ | รักษาความถูกต้องของข้อมูล ลดความซ้ำซ้อน     | จัดระเบียบข้อมูลอย่างมีประสิทธิภาพ ป้องกันความสับสน | บังคับใช้ entity integrity constraint          |
+| การใช้งาน  | สำคัญต่อการทำ normalization                 | สำคัญต่อการรักษา data integrity                     | ใช้สร้างความสัมพันธ์ระหว่างตาราง               |
 
 ---
 
 ## 📖 Key Terms & Glossary
 
-| Term | Definition |
-| --- | --- |
-| Deployment Topology | รูปแบบการจัดวาง hardware, software และ network component ในการติดตั้งระบบ (single-tier, two-tier, three-tier, cloud) |
-| Single-tier Architecture | สถาปัตยกรรมที่ UI, application logic และ data storage อยู่บนเครื่องเดียวกันทั้งหมด |
-| Two-tier (Client-Server) Architecture | แบ่งเป็น client layer (UI) และ server layer (application logic + data storage) |
-| Three-tier Architecture | เพิ่ม application server layer คั่นระหว่าง client กับ database server เพื่อความปลอดภัยและ maintainability |
-| Cloud Deployment | การติดตั้งฐานข้อมูลบน cloud environment โดยไม่ต้องดูแล infrastructure เอง |
-| Shared Disk Architecture | หลาย database server ใช้ storage ทางกายภาพร่วมกัน ประสานงานผ่าน high-speed interconnection |
-| Shared Nothing Architecture | แต่ละ node มี CPU, memory, storage เป็นของตัวเอง กระจายข้อมูลด้วย replication หรือ partitioning |
-| Replication | การคัดลอกการเปลี่ยนแปลงของข้อมูลจาก database server หลักไปยัง replica อื่น |
-| HA (High Availability) Replica | replica ที่อยู่ตำแหน่งเดียวกับ primary ใช้สำหรับ failover เมื่อ primary ล่ม |
-| Disaster Recovery Replica | replica ที่อยู่ต่างพื้นที่ทางภูมิศาสตร์ ป้องกันกรณี data center ทั้งหมดล่ม |
-| Partitioning | การแบ่งตารางขนาดใหญ่ออกเป็นส่วนย่อยเชิงตรรกะ |
-| Sharding | การนำ partition ไปวางบน node แยกกันใน cluster เพื่อรองรับ parallel processing |
-| ORM (Object Relational Mapping) | framework ที่ช่วยให้ภาษาโปรแกรมมิ่งเชิงวัตถุทำงานกับ relational database ได้ง่ายขึ้นโดยซ่อน SQL ไว้เบื้องหลัง |
-| Storage Engine | ส่วนประกอบของ MySQL ที่จัดการ SQL operation บนตารางและกำหนดฟีเจอร์ที่ตารางนั้นใช้ได้ |
-| InnoDB | storage engine ค่า default ของ MySQL รองรับ transaction, row-level locking, foreign key |
-| MyISAM | storage engine ของ MySQL เหมาะกับ workload ที่อ่านมากกว่าเขียน ใช้ table-level locking |
-| NDB | storage engine ของ MySQL สำหรับรองรับการรันเป็น cluster |
-| HADR (High Availability Disaster Recovery) | ฟีเจอร์ของ Db2 ที่ replicate ข้อมูลจาก primary ไปยัง standby server และ promote อัตโนมัติเมื่อ primary ล่ม |
-| DB-Engines Ranking | การจัดอันดับความนิยมของฐานข้อมูลโดยพิจารณาหลายปัจจัย เช่น การกล่าวถึงออนไลน์และตำแหน่งงาน |
-| Open-source Licensing | รูปแบบ license ที่อนุญาตให้ดู แก้ไข และแจกจ่าย source code ได้อย่างเสรี |
-| Cloud Database | บริการฐานข้อมูลที่สร้างและเข้าถึงผ่าน cloud platform |
-| Functional Dependency (FD) | ความสัมพันธ์ที่ attribute หนึ่ง (determinant) กำหนดค่า attribute อีกตัว (dependent) ได้อย่างเฉพาะเจาะจง เขียนเป็น X -> Y |
-| Multi-Valued Dependency (MVD) | ความสัมพันธ์ที่ attribute หนึ่งกำหนด "ชุด" ของค่าที่เป็นไปได้ของอีก attribute เขียนเป็น X ->> {Y1, Y2, ...} |
-| Candidate Key | ชุด attribute ขั้นต่ำที่ระบุแต่ละแถวในตารางได้อย่างไม่ซ้ำกัน |
-| Normalization | กระบวนการจัดโครงสร้างฐานข้อมูลเพื่อลดความซ้ำซ้อนและรักษาความถูกต้องของข้อมูล โดยอาศัย FD และ MVD เป็นพื้นฐาน |
+| Term                                       | Definition                                                                                                               |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Deployment Topology                        | รูปแบบการจัดวาง hardware, software และ network component ในการติดตั้งระบบ (single-tier, two-tier, three-tier, cloud)     |
+| Single-tier Architecture                   | สถาปัตยกรรมที่ UI, application logic และ data storage อยู่บนเครื่องเดียวกันทั้งหมด                                       |
+| Two-tier (Client-Server) Architecture      | แบ่งเป็น client layer (UI) และ server layer (application logic + data storage)                                           |
+| Three-tier Architecture                    | เพิ่ม application server layer คั่นระหว่าง client กับ database server เพื่อความปลอดภัยและ maintainability                |
+| Cloud Deployment                           | การติดตั้งฐานข้อมูลบน cloud environment โดยไม่ต้องดูแล infrastructure เอง                                                |
+| Shared Disk Architecture                   | หลาย database server ใช้ storage ทางกายภาพร่วมกัน ประสานงานผ่าน high-speed interconnection                               |
+| Shared Nothing Architecture                | แต่ละ node มี CPU, memory, storage เป็นของตัวเอง กระจายข้อมูลด้วย replication หรือ partitioning                          |
+| Replication                                | การคัดลอกการเปลี่ยนแปลงของข้อมูลจาก database server หลักไปยัง replica อื่น                                               |
+| HA (High Availability) Replica             | replica ที่อยู่ตำแหน่งเดียวกับ primary ใช้สำหรับ failover เมื่อ primary ล่ม                                              |
+| Disaster Recovery Replica                  | replica ที่อยู่ต่างพื้นที่ทางภูมิศาสตร์ ป้องกันกรณี data center ทั้งหมดล่ม                                               |
+| Partitioning                               | การแบ่งตารางขนาดใหญ่ออกเป็นส่วนย่อยเชิงตรรกะ                                                                             |
+| Sharding                                   | การนำ partition ไปวางบน node แยกกันใน cluster เพื่อรองรับ parallel processing                                            |
+| ORM (Object Relational Mapping)            | framework ที่ช่วยให้ภาษาโปรแกรมมิ่งเชิงวัตถุทำงานกับ relational database ได้ง่ายขึ้นโดยซ่อน SQL ไว้เบื้องหลัง            |
+| Storage Engine                             | ส่วนประกอบของ MySQL ที่จัดการ SQL operation บนตารางและกำหนดฟีเจอร์ที่ตารางนั้นใช้ได้                                     |
+| InnoDB                                     | storage engine ค่า default ของ MySQL รองรับ transaction, row-level locking, foreign key                                  |
+| MyISAM                                     | storage engine ของ MySQL เหมาะกับ workload ที่อ่านมากกว่าเขียน ใช้ table-level locking                                   |
+| NDB                                        | storage engine ของ MySQL สำหรับรองรับการรันเป็น cluster                                                                  |
+| HADR (High Availability Disaster Recovery) | ฟีเจอร์ของ Db2 ที่ replicate ข้อมูลจาก primary ไปยัง standby server และ promote อัตโนมัติเมื่อ primary ล่ม               |
+| DB-Engines Ranking                         | การจัดอันดับความนิยมของฐานข้อมูลโดยพิจารณาหลายปัจจัย เช่น การกล่าวถึงออนไลน์และตำแหน่งงาน                                |
+| Open-source Licensing                      | รูปแบบ license ที่อนุญาตให้ดู แก้ไข และแจกจ่าย source code ได้อย่างเสรี                                                  |
+| Cloud Database                             | บริการฐานข้อมูลที่สร้างและเข้าถึงผ่าน cloud platform                                                                     |
+| Functional Dependency (FD)                 | ความสัมพันธ์ที่ attribute หนึ่ง (determinant) กำหนดค่า attribute อีกตัว (dependent) ได้อย่างเฉพาะเจาะจง เขียนเป็น X -> Y |
+| Multi-Valued Dependency (MVD)              | ความสัมพันธ์ที่ attribute หนึ่งกำหนด "ชุด" ของค่าที่เป็นไปได้ของอีก attribute เขียนเป็น X ->> {Y1, Y2, ...}              |
+| Candidate Key                              | ชุด attribute ขั้นต่ำที่ระบุแต่ละแถวในตารางได้อย่างไม่ซ้ำกัน                                                             |
+| Normalization                              | กระบวนการจัดโครงสร้างฐานข้อมูลเพื่อลดความซ้ำซ้อนและรักษาความถูกต้องของข้อมูล โดยอาศัย FD และ MVD เป็นพื้นฐาน             |
 
 ---
 
@@ -254,6 +272,20 @@ Candidate key คือชุด attribute ขั้นต่ำ (minimal) ท�
 - [ ] MVD ต่างจาก FD อย่างชัดเจนในกรณีใช้งานจริงอย่างไร และการมี MVD ที่ไม่ได้ normalize อาจก่อให้เกิดปัญหาอะไรกับตาราง
 - [ ] เมื่อไรควรเลือกใช้ partitioning เทียบกับ sharding ในการออกแบบระบบจริง
 - [ ] Storage engine ของ MySQL แต่ละตัว (InnoDB, MyISAM, NDB) เหมาะกับ use case แบบไหนมากที่สุดในงาน data engineering
+- [x] LAMP stack vs. LAPP stack
+  - The primary difference between LAMP and LAPP stacks is the database system they use: LAMP uses MySQL, while LAPP uses PostgreSQL.
+  - Both share Linux for the operating system, Apache for the web server, and PHP (along with Python or Perl) for scripting.
+  - Database Comparison
+    - MySQL (LAMP):
+      - Faster and simpler setup for basic, standard web projects.
+      - Highly popular with content management systems like WordPres
+      - Great for standard relational data storage.
+    - PostgreSQL (LAPP):
+      - Advanced features for complex data queries, data integrity, and heavy workloads.
+      - Better support for enterprise-level applications, custom data types, and high concurrency.
+  - Use Cases
+    - Choose LAMP when: Building standard blogs, e-commerce sites, or simple dynamic applications that rely on traditional MySQL databases
+    - Choose LAPP when: Developing large-scale enterprise software that requires advanced database functions, strict data rules, or complex analytical processing.
 
 ---
 
