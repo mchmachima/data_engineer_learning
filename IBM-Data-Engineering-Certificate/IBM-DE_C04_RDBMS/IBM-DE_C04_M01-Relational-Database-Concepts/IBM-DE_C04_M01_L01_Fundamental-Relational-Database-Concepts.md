@@ -1,78 +1,35 @@
 # L01 Fundamental Relational Database Concepts
 
-- **Certificate:** IBM Data Engineering Professional Certificate
-- **Course:** C04 Introduction to Relational Databases (RDBMS)
-- **Module:** M01 Relational Database Concepts
-- **Date studied:** 2026-07-12
+`Tags: RDBMS, database, data-model, ERD, normalization, data-types`
+
+| Field             | Value                                            |
+| ----------------- | ------------------------------------------------- |
+| **Certificate**   | IBM Data Engineering Professional Certificate    |
+| **Course**        | C04 Introduction to Relational Databases (RDBMS) |
+| **Module**        | M01 Relational Database Concepts                 |
+| **Date studied**  | 2026-07-12                                       |
 
 ---
 
-## 📌 Key Concepts
+## Table of Contents
 
-**Data and Data Repositories**
+- [Overview](#overview)
+- [Data and Data Repositories](#data-and-data-repositories)
+- [Database Objects](#database-objects)
+- [Information Models and Data Models](#information-models-and-data-models)
+- [ERDs and Types of Relationships](#erds-and-types-of-relationships)
+- [Mapping Entities to Tables](#mapping-entities-to-tables)
+- [Data Types](#data-types)
+- [Relational Model Concepts](#relational-model-concepts)
+- [📖 Key Terms & Glossary](#-key-terms--glossary)
+- [❓ My Questions & Gaps](#-my-questions--gaps)
+- [🔗 Resources](#-resources)
 
-- Data is unorganized information (facts, observations, numbers, symbols, images, or a mix) that becomes meaningful once processed.
-- Data falls into three structural categories: structured, unstructured, and semi-structured.
-- Structured data follows a rigid, predefined schema (rows/columns) — e.g., spreadsheets, SQL databases, online forms.
-- Unstructured data has no predefined format — e.g., text files, media files, web pages, social media content.
-- Semi-structured data has partial organization via tags/hierarchy rather than strict tables — e.g., JSON, XML, emails.
-- Common file formats for storing/transferring data: delimited text files (CSV, TSV), spreadsheets, and language files (XML, JSON).
-- Data repositories centrally store, manage, and organize data; the two major categories are relational and non-relational databases.
-- Relational databases (RDBMS) store structured data in linked tables, minimizing duplication, and mainly support OLTP (day-to-day transactional work).
-- OLAP systems (which can include relational/non-relational stores, data warehouses, and data lakes) focus on querying and analyzing large datasets for insights.
-- Non-relational databases (e.g., MongoDB, Cassandra, Redis) offer flexibility for unstructured or semi-structured data.
+---
 
-**Information Models and Data Models**
+## Overview
 
-- Information models and data models are the two key concepts in data organization, operating at different levels of abstraction.
-- An information model is an abstract, conceptual framework representing entities, properties, relationships, and functions — a high-level, technology-agnostic view for business stakeholders.
-- A data model is a tangible blueprint that translates the information model into a technical database structure, defining schema, tables, columns, data types, indexes, and relationships (e.g., foreign keys) — often via normalization.
-- Business analysts/stakeholders use information models to agree on concepts; database designers/developers use data models to build the system.
-- The hierarchical model is an early physical implementation of an information system, structuring data in a tree-like format; it has lower abstraction and struggles with many-to-many relationships, causing redundancy.
-- The two most common data model types are the relational model and the entity-relationship (ER) model.
-- The relational model is the most widely used, storing data in tables and providing logical, physical, and storage independence, with the advantages of simplicity, flexibility, and ease of use.
-- The ER model conceptualizes a database as entities (rectangles) with attributes (ovals) and their relationships; it's used for conceptual design and is then mapped into relational tables.
-- Three independence concepts — logical, physical, and physical storage — let parts of a database change without breaking other parts of the system.
-
-**ERDs and Types of Relationships**
-
-- An ERD (Entity Relationship Diagram) is a visual representation illustrating the relationships and interactions between entities in a database.
-- An ERD shows the logical structure of a database — entities as boxes, with lines connecting them to show relationships.
-- The three fundamental components of an ERD are entities, relationship sets, and crow's foot notation.
-- Entities are people, objects, or concepts that store data, represented as rectangles; their attributes (properties) are shown as ovals, each attribute connecting to exactly one entity.
-- Relationship sets illustrate how entities are interconnected, represented as diamonds with lines connecting the associated entities.
-- Crow's foot notation uses symbols (greater-than, less-than, vertical lines) to show the nature and quantity of a relationship between entities.
-- There are three relationship types: one-to-one, one-to-many (or many-to-one), and many-to-many — illustrated in the lesson using a Book/Author example.
-
-**Mapping Entities to Tables**
-
-- An ERD is a graphical representation of the entities and relationships in a database, used as a modeling technique in database design.
-- The primary ERD components are entities (rectangles), attributes (ovals inside the entity), and relationships (lines connecting entities).
-- A relational database organizes data into tables, with relationships between tables based on common fields.
-- Designing a relational database starts with an ERD, which is then mapped to tables.
-- Mapping an ERD to tables is a three-step process: create a table for each entity, translate attributes into columns, then add data values into the columns.
-- Best practices for relational database design include primary key designation, data validation, default values, use of views, and concurrency control.
-
-**Data Types**
-
-- A data type defines what kind of data a column can hold and controls what can be validly entered into it (text, date, number, etc.).
-- Varchar (variable character) stores strings up to a specified maximum length but only uses the space actually needed — more space-efficient than fixed-length types.
-- Char is a fixed-length character type that always uses the specified number of characters, padding with spaces if the value is shorter.
-- Date/time types include DATE (year, month, day), TIME, and combined DATETIME or TIMESTAMP types; exact behavior varies by database system (e.g., MySQL).
-- Float stores approximate floating-point numbers (fine when exact precision isn't required); Decimal stores exact numbers and is preferred for financial calculations.
-- Integer types (INT, SMALLINT, etc.) store whole numbers, each with a different supported range.
-- Binary types like BLOB (Binary Large Object) store non-textual data such as images or files as raw bytes.
-- Choosing the correct data type prevents invalid data entry, enables accurate sorting and range selection, and allows correct numeric calculations.
-
-**Relational Model Concepts**
-
-- The relational model (introduced in 1970) is built on two core mathematical concepts: sets and relations.
-- A set is a collection of unique, unordered elements of a similar type, typically written with curly braces or set-builder notation.
-- Key set operations include membership, subset, union, intersection, difference, empty set, power set, universal set, and disjoint sets.
-- A relation describes a connection between elements of sets; common types include binary relations and ordered pairs (from the Cartesian product).
-- Relations can exhibit properties: reflexivity, symmetry, transitivity, and anti-symmetry.
-- A relation has two components: the relation schema (structure — relation name plus attribute names/types) and the relation instance (the actual data — rows and columns).
-- Degree is the number of attributes (columns) in a relation; cardinality is the number of tuples (rows).
+บทเรียนนี้ปูพื้นฐานแนวคิดของฐานข้อมูลเชิงสัมพันธ์ (relational database) ตั้งแต่ประเภทของข้อมูล (structured, unstructured, semi-structured), data repository และความหมายของ database object (table, view, index, stored procedure ฯลฯ) ที่ประกอบกันขึ้นเป็นฐานข้อมูล ไปจนถึงความแตกต่างระหว่าง information model กับ data model รวมถึงวิธีใช้ ERD (Entity Relationship Diagram) เพื่อออกแบบฐานข้อมูลและแปลงเป็นตารางจริง นอกจากนี้ยังครอบคลุม data type ที่ใช้กำหนดชนิดข้อมูลในแต่ละคอลัมน์ และปิดท้ายด้วยรากฐานทางคณิตศาสตร์ของ relational model อย่าง set และ relation ซึ่งเป็นพื้นฐานสำคัญก่อนจะเข้าสู่เรื่อง normalization ในบทเรียนถัดไป
 
 ---
 
@@ -80,37 +37,70 @@
 
 ### Data and Data Structures
 
-Data refers to unorganized information — facts, observations, perceptions, numbers, characters, symbols, images, or a combination — that becomes meaningful once processed. How data is structured determines how efficiently it can be stored, managed, and analyzed. There are three main structural categories:
+Data คือข้อมูลดิบที่ยังไม่ผ่านการจัดระเบียบ — ข้อเท็จจริง, การสังเกตการณ์, ตัวเลข, ตัวอักษร, สัญลักษณ์, รูปภาพ หรือรวมกันหลายแบบ — ซึ่งจะมีความหมายก็ต่อเมื่อผ่านการประมวลผลแล้ว วิธีจัดโครงสร้างของข้อมูลส่งผลต่อประสิทธิภาพในการจัดเก็บ จัดการ และวิเคราะห์ แบ่งเป็น 3 ประเภทหลัก:
 
-- **Structured data** — highly organized, follows a strict predefined schema, typically arranged in rows/columns. Examples: Excel spreadsheets, SQL databases, online forms with designated fields (name, address, credit card number).
-- **Unstructured data** — lacks a specific format or organization, doesn't follow predefined rules, harder to process with traditional methods. Examples: text files, media files (images/audio/video), web pages, social media content.
-- **Semi-structured data** — has some organizational properties (hierarchical structure or tags) without a strict tabular format, balancing flexibility and structure. Examples: JSON files (arrays/objects with keys), XML documents (tags, attributes, schema), emails (structured fields like to/from/subject, but unstructured message body).
+- **Structured data** — ข้อมูลที่มีการจัดระเบียบสูง เป็นไปตาม schema ที่กำหนดไว้ล่วงหน้า มักอยู่ในรูปแบบแถว/คอลัมน์ เช่น Excel spreadsheet, SQL database, ฟอร์มออนไลน์ที่มีช่องกรอกกำหนดไว้ชัดเจน (ชื่อ, ที่อยู่, หมายเลขบัตรเครดิต)
+- **Unstructured data** — ข้อมูลที่ไม่มีรูปแบบหรือโครงสร้างชัดเจน ไม่เป็นไปตามกฎที่กำหนดไว้ล่วงหน้า ประมวลผลด้วยวิธีดั้งเดิมได้ยาก เช่น text file, media file (รูปภาพ/เสียง/วิดีโอ), เว็บเพจ, เนื้อหาบน social media
+- **Semi-structured data** — มีคุณสมบัติการจัดระเบียบบางส่วน (โครงสร้างแบบลำดับชั้นหรือ tag) แต่ไม่ใช่ตารางที่เคร่งครัด สร้างสมดุลระหว่างความยืดหยุ่นและโครงสร้าง เช่น JSON file (array/object ที่มี key), XML document (tag, attribute, schema), email (มีช่องที่มีโครงสร้าง เช่น to/from/subject แต่เนื้อหาข้อความเป็น unstructured)
 
 ---
 
 ### Common File Formats for Data Transfer
 
-Businesses pull data from many sources — traditional databases, flat files, XML data sets, web scraping, data streams/feeds, social media, IoT sensors — and need standard formats to hold or transfer it between systems:
+ธุรกิจดึงข้อมูลมาจากหลายแหล่ง — ฐานข้อมูลแบบดั้งเดิม, flat file, ชุดข้อมูล XML, web scraping, data stream/feed, social media, IoT sensor — และต้องการรูปแบบมาตรฐานสำหรับจัดเก็บหรือถ่ายโอนข้อมูลระหว่างระบบ:
 
-- **Delimited text files** — data in rows, with each variable separated by a specific character (comma or tab). Includes CSV (comma-separated values) and TSV (tab-separated values).
-- **Spreadsheets** — data arranged in rows and columns like a table, making access and manipulation easy; can be used to create CSV files.
-- **Language files** — formats like XML and JSON that have set rules and structures for encoding data to send over the internet.
+- **Delimited text files** — ข้อมูลเรียงเป็นแถว โดยแต่ละตัวแปรคั่นด้วยอักขระเฉพาะ (comma หรือ tab) ได้แก่ CSV (comma-separated values) และ TSV (tab-separated values)
+- **Spreadsheets** — ข้อมูลจัดเรียงเป็นแถวและคอลัมน์คล้ายตาราง ทำให้เข้าถึงและจัดการข้อมูลได้ง่าย และสามารถใช้สร้างไฟล์ CSV ได้
+- **Language files** — รูปแบบอย่าง XML และ JSON ที่มีกฎและโครงสร้างชัดเจนสำหรับ encode ข้อมูลเพื่อส่งผ่านอินเทอร์เน็ต
 
 ---
 
 ### Data Repositories: Relational vs Non-Relational Databases
 
-Data repositories actively store, manage, and organize data centrally, providing a structured framework for efficient retrieval and administration. The two major categories:
+Data repository ทำหน้าที่จัดเก็บ จัดการ และจัดระเบียบข้อมูลแบบรวมศูนย์ ให้กรอบโครงสร้างสำหรับการเรียกใช้และบริหารจัดการข้อมูลอย่างมีประสิทธิภาพ แบ่งเป็น 2 ประเภทหลัก:
 
-- **Relational databases** — structured data stored in related tables; links between tables minimize data duplication while preserving relationships. Collectively known as Relational Database Management Systems (RDBMS). Prominent examples: IBM DB2, Microsoft SQL Server, Oracle, MySQL.
-- **Non-relational databases** — offer flexibility for handling diverse and unstructured/semi-structured data. Examples: MongoDB (document-oriented), Cassandra, Redis.
+- **Relational databases** — จัดเก็บ structured data ในตารางที่เชื่อมโยงกัน การเชื่อมโยงระหว่างตารางช่วยลดความซ้ำซ้อนของข้อมูล เรียกรวมกันว่า Relational Database Management System (RDBMS) ตัวอย่างที่รู้จักกันดี ได้แก่ IBM DB2, Microsoft SQL Server, Oracle, MySQL
+- **Non-relational databases** — ให้ความยืดหยุ่นในการจัดการข้อมูลที่หลากหลายและเป็น unstructured/semi-structured เช่น MongoDB (document-oriented), Cassandra, Redis
 
 ---
 
 ### OLTP vs OLAP
 
-- **OLTP (Online Transaction Processing)** — relational databases are primarily OLTP systems, supporting day-to-day business activities like customer transactions, HR activities, and workflows. Their normalized structure ensures transactional integrity and supports concurrent access for routine operations.
-- **OLAP (Online Analytical Processing)** — includes various storage solutions (relational and non-relational databases, data warehouses, data lakes, big data stores) focused on querying and analyzing large datasets to extract insights. Example: using CRM-sourced data for analytics like sales projections.
+- **OLTP (Online Transaction Processing)** — relational database ส่วนใหญ่เป็นระบบ OLTP รองรับกิจกรรมทางธุรกิจประจำวัน เช่น การทำธุรกรรมของลูกค้า, งาน HR และ workflow ต่าง ๆ โครงสร้างที่ผ่านการ normalize ช่วยรักษาความถูกต้องของ transaction และรองรับการเข้าถึงพร้อมกันสำหรับงานประจำวัน
+- **OLAP (Online Analytical Processing)** — ครอบคลุมรูปแบบการจัดเก็บข้อมูลหลากหลาย (relational/non-relational database, data warehouse, data lake, big data store) เน้นการ query และวิเคราะห์ข้อมูลปริมาณมากเพื่อดึง insight เช่น การนำข้อมูลจาก CRM มาใช้วิเคราะห์เพื่อคาดการณ์ยอดขาย
+
+---
+
+## Database Objects
+
+### ความหมายของ Object ในฐานข้อมูล
+
+ใน Database Management System (DBMS) คำว่า **Object (ออบเจกต์ในฐานข้อมูล)** หมายถึง **องค์ประกอบเชิงโครงสร้างต่าง ๆ ที่ถูกสร้าง จัดเก็บ และใช้งานภายในฐานข้อมูล** เพื่อจัดเก็บ จัดการ ค้นหา หรือควบคุมความปลอดภัยของข้อมูล
+
+ถ้าเปรียบฐานข้อมูลเป็น "เมืองใหญ่" หรือ "อาคารสำนักงาน" database object ก็เปรียบเสมือนสิ่งปลูกสร้างและระบบภายในนั้น เช่น ห้องเก็บของ, ตู้เอกสาร, ถนน หรือกุญแจล็อคห้อง — แต่ละอย่างมีหน้าที่เฉพาะตัว แต่ทำงานร่วมกันเพื่อให้ทั้งระบบใช้งานได้จริง
+
+---
+
+### ตัวอย่าง Database Object ที่พบบ่อย
+
+| Object | เปรียบเทียบ | หน้าที่ |
+| --- | --- | --- |
+| **Table** | ตู้เอกสาร/ชั้นวางของ | จัดเก็บข้อมูลจริงเป็นแถวและคอลัมน์ เป็น object พื้นฐานที่สุด |
+| **View** | หน้าต่างมองเข้าไปในตู้เอกสาร | มุมมองเสมือนที่สร้างจาก query บนตารางหนึ่งตัวหรือมากกว่า โดยไม่เก็บข้อมูลซ้ำ |
+| **Index** | สารบัญหรือป้ายบอกทาง | โครงสร้างช่วยให้ค้นหาแถวข้อมูลในตารางได้เร็วขึ้น โดยไม่ต้องไล่อ่านทั้งตาราง |
+| **Primary/Foreign Key (Constraint)** | กุญแจล็อคห้อง | บังคับกฎความถูกต้องของข้อมูล เช่น ห้ามซ้ำ (primary key) หรือบังคับความสัมพันธ์ระหว่างตาราง (foreign key) |
+| **Stored Procedure** | คู่มือขั้นตอนการทำงานที่เก็บไว้ใช้ซ้ำ | ชุดคำสั่ง SQL ที่เขียนไว้ล่วงหน้าและเรียกใช้งานซ้ำได้ |
+| **Trigger** | ระบบเซนเซอร์อัตโนมัติ | ชุดคำสั่งที่ทำงานอัตโนมัติเมื่อมีเหตุการณ์เกิดขึ้นกับตาราง (เช่น insert, update, delete) |
+| **Schema** | ผังของอาคารทั้งหลัง | พื้นที่เชิงตรรกะที่ใช้จัดกลุ่ม object ต่าง ๆ (ตาราง, view, index ฯลฯ) ไว้ด้วยกัน |
+| **Sequence** | เครื่องออกบัตรคิว | สร้างค่าตัวเลขที่เพิ่มขึ้นเรื่อย ๆ โดยอัตโนมัติ มักใช้เป็นค่า primary key |
+
+---
+
+### ทำไม Database Object ถึงสำคัญ
+
+- ช่วยแยกหน้าที่ของแต่ละองค์ประกอบในฐานข้อมูลให้ชัดเจน (จัดเก็บข้อมูล, ควบคุมความปลอดภัย, เพิ่มประสิทธิภาพการค้นหา, บังคับใช้กฎของข้อมูล)
+- เป็นหน่วยที่ DBA และ data engineer ใช้อ้างอิงเมื่อกำหนดสิทธิ์การเข้าถึง (access control) เช่น อนุญาตให้ user เข้าถึงเฉพาะ view แทนที่จะเข้าถึงตารางต้นฉบับโดยตรง
+- การเข้าใจว่า object แต่ละประเภททำหน้าที่อะไร เป็นพื้นฐานสำคัญก่อนจะออกแบบและ implement โครงสร้างฐานข้อมูลจริงในหัวข้อถัดไป
 
 ---
 
@@ -118,60 +108,60 @@ Data repositories actively store, manage, and organize data centrally, providing
 
 ### Information Models vs Data Models
 
-An information model is a conceptual framework representing entities, properties, relationships, and functions abstractly — giving stakeholders a high-level view of data without implementation detail. A data model operates at a tangible level, translating that conceptual view into a technical blueprint: schema, tables, columns, data types, indexes, and relationships (often refined through normalization).
+Information model คือกรอบแนวคิดที่แสดง entity, property, relationship และ function ในระดับนามธรรม ให้ stakeholder มองเห็นภาพรวมของข้อมูลโดยไม่ต้องลงรายละเอียดการนำไปใช้งานจริง ส่วน data model ทำงานในระดับที่จับต้องได้มากกว่า โดยแปลงมุมมองเชิงแนวคิดนั้นให้เป็น blueprint ทางเทคนิค: schema, ตาราง, คอลัมน์, data type, index และความสัมพันธ์ (มักผ่านการปรับปรุงด้วย normalization)
 
 | Aspect | Information Model | Data Model |
 | --- | --- | --- |
-| Level of abstraction | High — conceptual, technology-agnostic | Low — concrete, technical |
-| Focus | Broad business concepts and relationships | Storage, schema, and technical manipulation methods |
-| Detail | Fewer details | Detailed (tables, columns, data types, constraints) |
-| Tied to a specific DBMS? | No | Often, yes |
-| Used by | Business analysts and stakeholders | Database designers and developers |
-| Purpose | Agree on business concepts without technicalities | Construct and implement the actual database system |
+| ระดับความเป็นนามธรรม | สูง — เชิงแนวคิด ไม่ผูกกับเทคโนโลยี | ต่ำ — จับต้องได้ เชิงเทคนิค |
+| จุดเน้น | แนวคิดทางธุรกิจและความสัมพันธ์ในภาพกว้าง | การจัดเก็บ, schema และวิธีจัดการเชิงเทคนิค |
+| รายละเอียด | รายละเอียดน้อยกว่า | ละเอียด (ตาราง, คอลัมน์, data type, constraint) |
+| ผูกกับ DBMS เฉพาะเจาะจงหรือไม่ | ไม่ | ส่วนใหญ่ผูก |
+| ผู้ใช้งาน | Business analyst และ stakeholder | Database designer และ developer |
+| จุดประสงค์ | ตกลงแนวคิดทางธุรกิจโดยไม่ต้องลงรายละเอียดเทคนิค | สร้างและ implement ระบบฐานข้อมูลจริง |
 
-In system development, the information model captures the essential business information types first; that is then translated into a data model as the technical blueprint for the database system.
+ในการพัฒนาระบบ information model จะจับภาพประเภทข้อมูลทางธุรกิจที่จำเป็นก่อน จากนั้นจึงถูกแปลงเป็น data model ซึ่งเป็น blueprint ทางเทคนิคสำหรับระบบฐานข้อมูล
 
 ---
 
 ### The Hierarchical Model
 
-The hierarchical model is a physical implementation of an information system, storing relationships in a tree-like structure — unlike an information model, which conceptualizes relationships without specifying storage.
+Hierarchical model เป็นการ implement ทางกายภาพของระบบข้อมูล โดยเก็บความสัมพันธ์ในรูปแบบ tree — ต่างจาก information model ที่เป็นเพียงแนวคิดความสัมพันธ์โดยไม่ระบุการจัดเก็บ
 
 | Aspect | Information Model | Hierarchical Model |
 | --- | --- | --- |
-| Abstraction | High — conceptualizes without specifying storage | Lower — physically structures data in a tree format |
-| Relationship handling | Represents entity relationships clearly for real-world scenarios | Struggles with many-to-many relationships |
-| Consequence | N/A (conceptual only) | Structural limitations can lead to data redundancy |
-| Historical role | N/A | Rooted in early database systems; linked to the initial phases of information models |
+| ความเป็นนามธรรม | สูง — เป็นแนวคิดโดยไม่ระบุการจัดเก็บ | ต่ำกว่า — จัดโครงสร้างข้อมูลแบบ tree ทางกายภาพ |
+| การจัดการความสัมพันธ์ | แสดงความสัมพันธ์ของ entity ได้ชัดเจนสำหรับสถานการณ์จริง | มีปัญหากับความสัมพันธ์แบบ many-to-many |
+| ผลลัพธ์ | ไม่มี (เป็นแนวคิดล้วน ๆ) | ข้อจำกัดเชิงโครงสร้างอาจนำไปสู่ความซ้ำซ้อนของข้อมูล |
+| บทบาททางประวัติศาสตร์ | ไม่มี | มีรากฐานจากระบบฐานข้อมูลยุคแรก เชื่อมโยงกับช่วงเริ่มต้นของ information model |
 
 ---
 
 ### Types of Data Models: Relational and Entity-Relationship (ER)
 
-The two most common data model types are the **relational model** and the **entity-relationship (ER) model**.
+Data model ที่พบบ่อยที่สุด 2 ประเภทคือ **relational model** และ **entity-relationship (ER) model**
 
-- **Relational model** — the most widely used data model for databases. Stores data in tables and provides logical, physical, and storage independence. Advantages include simplicity, flexibility, and ease of use.
-- **ER model** — an alternative that conceptualizes a database as a collection of independently existing entities and objects. Entities are represented as rectangles, attributes as ovals (e.g., in a library database, `Author` is an entity with attributes like last name, first name, email). An ER diagram (ERD) is used for conceptual design and is then converted into tables — each entity becomes a table, with its attributes becoming columns.
+- **Relational model** — data model ที่ใช้กันแพร่หลายที่สุดสำหรับฐานข้อมูล จัดเก็บข้อมูลในตาราง และให้ logical, physical และ storage independence ข้อดีคือความเรียบง่าย ยืดหยุ่น และใช้งานง่าย
+- **ER model** — ทางเลือกที่มองฐานข้อมูลเป็นกลุ่มของ entity และ object ที่มีอยู่อย่างเป็นอิสระต่อกัน entity แสดงเป็นสี่เหลี่ยม attribute แสดงเป็นวงรี (เช่น ในฐานข้อมูลห้องสมุด `Author` เป็น entity ที่มี attribute อย่าง last name, first name, email) ER diagram (ERD) ใช้สำหรับขั้นตอนออกแบบเชิงแนวคิด แล้วจึงถูกแปลงเป็นตาราง — แต่ละ entity กลายเป็นตาราง และ attribute กลายเป็นคอลัมน์
 
 | Aspect | Relational Model | Entity-Relationship (ER) Model |
 | --- | --- | --- |
-| Representation | Data stored directly in tables | Entities (rectangles) and attributes (ovals) in a diagram |
-| Typical use | Actual database storage/implementation | Conceptual design stage, before implementation |
-| Independence | Provides logical, physical, and storage independence | N/A — a design/modeling tool |
-| Relationship to each other | End implementation target | Maps into relational tables (entity → table, attribute → column) |
-| Example | Tables like `Books`, `Authors`, `Borrowers` | ERD showing `Book`, `Author`, `Borrower` entities and their relationships |
+| การนำเสนอ | ข้อมูลถูกเก็บในตารางโดยตรง | Entity (สี่เหลี่ยม) และ attribute (วงรี) ใน diagram |
+| การใช้งานทั่วไป | การจัดเก็บ/implement ฐานข้อมูลจริง | ขั้นตอนออกแบบเชิงแนวคิด ก่อน implement |
+| Independence | ให้ logical, physical และ storage independence | ไม่มี — เป็นเครื่องมือออกแบบ/สร้างโมเดล |
+| ความสัมพันธ์ระหว่างกัน | เป็นเป้าหมายปลายทางของการ implement | ถูกแปลงเป็นตาราง (entity → table, attribute → column) |
+| ตัวอย่าง | ตารางเช่น `Books`, `Authors`, `Borrowers` | ERD แสดง entity `Book`, `Author`, `Borrower` และความสัมพันธ์ระหว่างกัน |
 
 ---
 
 ### Data Independence Concepts
 
-Three concepts support adaptability and efficiency in database management, each isolating one layer of the system from changes in another:
+มีแนวคิด 3 อย่างที่ช่วยให้ระบบฐานข้อมูลปรับตัวและมีประสิทธิภาพ โดยแต่ละอย่างจะแยกชั้นหนึ่งของระบบออกจากการเปลี่ยนแปลงในอีกชั้นหนึ่ง:
 
-| Independence Type | What it allows to change | What stays unaffected |
+| Independence Type | สิ่งที่เปลี่ยนแปลงได้ | สิ่งที่ไม่ได้รับผลกระทบ |
 | --- | --- | --- |
-| Logical data independence | Database structure (e.g., altering data types, adding fields) | User data access |
-| Physical data independence | Internal database organization (e.g., storage type, indexing strategy) | User views or applications |
-| Physical storage independence | Location/organization of data on physical storage devices | Application programs processing the data |
+| Logical data independence | โครงสร้างฐานข้อมูล (เช่น เปลี่ยน data type, เพิ่ม field) | การเข้าถึงข้อมูลของผู้ใช้ |
+| Physical data independence | การจัดระเบียบภายในฐานข้อมูล (เช่น ประเภทการจัดเก็บ, กลยุทธ์ indexing) | View หรือแอปพลิเคชันของผู้ใช้ |
+| Physical storage independence | ตำแหน่ง/การจัดระเบียบข้อมูลบนอุปกรณ์จัดเก็บทางกายภาพ | โปรแกรมแอปพลิเคชันที่ประมวลผลข้อมูล |
 
 ---
 
@@ -179,41 +169,41 @@ Three concepts support adaptability and efficiency in database management, each 
 
 ### What is an ERD?
 
-An ERD (Entity Relationship Diagram) is a visual representation that illustrates the relationships and interactions between entities in a database. It showcases the logical structure of a database system, displaying entities and the relationships between them as lines connecting boxes.
+ERD (Entity Relationship Diagram) คือการนำเสนอเชิงภาพที่แสดงความสัมพันธ์และปฏิสัมพันธ์ระหว่าง entity ในฐานข้อมูล แสดงโครงสร้างเชิงตรรกะของระบบฐานข้อมูล โดยแสดง entity และความสัมพันธ์ระหว่างกันเป็นเส้นเชื่อมระหว่างกล่อง
 
 ---
 
 ### Fundamental Components of an ERD
 
-An ERD is built from three fundamental components:
+ERD ประกอบด้วยองค์ประกอบพื้นฐาน 3 อย่าง:
 
-- **Entities** — represent people, objects, or concepts that store data in a database. They are the fundamental building blocks, depicted as rectangles, and contain attributes describing specific properties (e.g., the `Book` entity has attributes like title, edition, year, price; the `Author` entity has attributes like last name, first name, email, city, country, author ID). Each attribute connects to exactly one entity. Entities form the basis for relationships within the database model.
-- **Relationship sets** — illustrate how entities are interconnected or associated with each other, showing how instances of one entity type relate to instances of another. Represented as a diamond, with lines connecting the associated entities. Diagrams showing relationship types typically feature only entities (no attributes), to avoid clutter.
-- **Crow's foot notation** — a visual notation using symbols to signify the nature and quantity of relationships between entities: a rectangle for entity sets, a diamond for relationship sets, and symbols like `>`, `<`, and vertical lines to indicate whether a relationship is one-to-one, one-to-many, or many-to-many.
+- **Entities** — แทนบุคคล, วัตถุ หรือแนวคิดที่จัดเก็บข้อมูลในฐานข้อมูล เป็นส่วนประกอบพื้นฐาน แสดงเป็นสี่เหลี่ยม และมี attribute (คุณสมบัติ) ที่อธิบายคุณลักษณะเฉพาะ (เช่น entity `Book` มี attribute อย่าง title, edition, year, price; entity `Author` มี attribute อย่าง last name, first name, email, city, country, author ID) แต่ละ attribute เชื่อมกับ entity เพียงตัวเดียวเท่านั้น entity เป็นพื้นฐานสำหรับความสัมพันธ์ในโมเดลฐานข้อมูล
+- **Relationship sets** — แสดงว่า entity เชื่อมโยงหรือสัมพันธ์กันอย่างไร แสดงว่า instance ของ entity หนึ่งสัมพันธ์กับ instance ของอีก entity อย่างไร แทนด้วยรูปสี่เหลี่ยมข้าวหลามตัด (diamond) พร้อมเส้นเชื่อมไปยัง entity ที่เกี่ยวข้อง diagram ที่แสดงประเภทความสัมพันธ์มักมีแค่ entity เท่านั้น (ไม่มี attribute) เพื่อไม่ให้ดูรก
+- **Crow's foot notation** — สัญลักษณ์เชิงภาพที่บ่งบอกลักษณะและปริมาณของความสัมพันธ์ระหว่าง entity: สี่เหลี่ยมสำหรับ entity set, สี่เหลี่ยมข้าวหลามตัดสำหรับ relationship set และสัญลักษณ์อย่าง `>`, `<` และเส้นแนวตั้ง เพื่อบ่งบอกว่าความสัมพันธ์เป็นแบบ one-to-one, one-to-many หรือ many-to-many
 
 ---
 
 ### Types of Relationships
 
-Using the Book/Author example: a book requires at least one author (and can have more than one), and an author can write one or more books. The nature of this connection defines the relationship type.
+ใช้ตัวอย่าง Book/Author: หนังสือหนึ่งเล่มต้องมีผู้แต่งอย่างน้อยหนึ่งคน (และอาจมีมากกว่านั้น) และผู้แต่งหนึ่งคนสามารถเขียนหนังสือได้หนึ่งเล่มหรือมากกว่า ลักษณะของความเชื่อมโยงนี้เป็นตัวกำหนดประเภทความสัมพันธ์
 
-| Relationship Type | Definition | Crow's Foot Symbol | Book/Author Example |
+| Relationship Type | นิยาม | สัญลักษณ์ Crow's Foot | ตัวอย่าง Book/Author |
 | --- | --- | --- | --- |
-| One-to-one | Each entity in the set is engaged in exactly one relationship | Thick/plain line, no crow's foot | Each book is written by a single author ("Authored by") |
-| One-to-many (or many-to-one) | One entity participates in multiple relationships within the set | Less-than symbol (`<`) on one side | One book has multiple authors; viewed the other way, multiple authors contribute to one book |
-| Many-to-many | Multiple instances of one entity relate to multiple instances of another | Greater-than and less-than symbols (`>` ... `<`) on both sides | Many authors write many books |
+| One-to-one | Entity แต่ละตัวใน set มีความสัมพันธ์เพียงหนึ่งเดียว | เส้นหนา/เรียบ ไม่มี crow's foot | หนังสือแต่ละเล่มเขียนโดยผู้แต่งคนเดียว ("Authored by") |
+| One-to-many (หรือ many-to-one) | Entity หนึ่งตัวมีส่วนร่วมในความสัมพันธ์หลายรายการภายใน set | สัญลักษณ์ less-than (`<`) ด้านหนึ่ง | หนังสือหนึ่งเล่มมีผู้แต่งหลายคน; มองอีกมุมคือผู้แต่งหลายคนร่วมเขียนหนังสือเล่มเดียว |
+| Many-to-many | Instance หลายตัวของ entity หนึ่งสัมพันธ์กับ instance หลายตัวของอีก entity | สัญลักษณ์ greater-than และ less-than (`>` ... `<`) ทั้งสองด้าน | ผู้แต่งหลายคนเขียนหนังสือหลายเล่ม |
 
-Simple diagram of each type (Book–Author):
+แผนภาพอย่างง่ายของแต่ละประเภท (Book–Author):
 
 ```
 One-to-One:      [ Book ] ──────── [ Author ]
-                  (each book has exactly one author)
+                  (หนังสือแต่ละเล่มมีผู้แต่งเพียงคนเดียว)
 
 One-to-Many:      [ Book ] ───────≺ [ Author ]
-                  (one book, multiple authors)
+                  (หนังสือหนึ่งเล่ม มีผู้แต่งหลายคน)
 
 Many-to-Many:     [ Book ] ≻─────≺ [ Author ]
-                  (many books, many authors)
+                  (หนังสือหลายเล่ม ผู้แต่งหลายคน)
 ```
 
 ---
@@ -222,35 +212,35 @@ Many-to-Many:     [ Book ] ≻─────≺ [ Author ]
 
 ### From ERD to Relational Database
 
-An ERD is a graphical representation of the entities and relationships between them in a database — a modeling technique used to visually represent a database system's structure. Its primary components are:
+ERD คือการนำเสนอเชิงภาพของ entity และความสัมพันธ์ระหว่างกันในฐานข้อมูล เป็นเทคนิคการสร้างโมเดลที่ใช้แสดงโครงสร้างของระบบฐานข้อมูลเชิงภาพ องค์ประกอบหลักได้แก่:
 
-- **Entities** — real-world objects, concepts, or things that store and manage data, depicted as rectangles (e.g., `Book`).
-- **Attributes** — characteristics associated with an entity, depicted as ovals inside the entity rectangle (e.g., ISBN, title, author, published year for `Book`).
-- **Relationships** — illustrate how entities interrelate, shown as a line connecting entity rectangles (e.g., an `Author` "writes" a `Book`).
+- **Entities** — วัตถุ แนวคิด หรือสิ่งของในโลกจริงที่จัดเก็บและจัดการข้อมูล แสดงเป็นสี่เหลี่ยม (เช่น `Book`)
+- **Attributes** — คุณลักษณะที่เกี่ยวข้องกับ entity แสดงเป็นวงรีภายในสี่เหลี่ยมของ entity (เช่น ISBN, title, author, published year สำหรับ `Book`)
+- **Relationships** — แสดงว่า entity สัมพันธ์กันอย่างไร แสดงเป็นเส้นเชื่อมระหว่างสี่เหลี่ยมของ entity (เช่น `Author` "writes" `Book`)
 
-A relational database provides a well-defined framework for managing and manipulating structured data, organizing data elements into tables where relationships between tables depend on common fields.
+Relational database ให้กรอบโครงสร้างที่ชัดเจนสำหรับจัดการและปรับแต่ง structured data โดยจัดข้อมูลเป็นตาราง ซึ่งความสัมพันธ์ระหว่างตารางขึ้นอยู่กับ field ที่ใช้ร่วมกัน
 
 ---
 
 ### Steps for Mapping Entities to Tables
 
-To design a relational database, begin with an ERD, then map it to tables:
+การออกแบบ relational database เริ่มจาก ERD แล้วจึงแปลงเป็นตาราง:
 
-1. **Entity → Table** — the entity becomes a table with the same name (e.g., `Book` entity becomes the `Book` table). This step only provides the structure for rows and columns; the table is still empty.
-2. **Attributes → Columns** — the attributes of the entity become columns in the table (e.g., ISBN, title, and author become columns in the `Book` table).
-3. **Add data values** — relevant data is entered into the table's columns, completing the transformation from a conceptual entity into a tangible table with real data.
+1. **Entity → Table** — entity กลายเป็นตารางที่มีชื่อเดียวกัน (เช่น entity `Book` กลายเป็นตาราง `Book`) ขั้นตอนนี้ให้เพียงโครงสร้างของแถว/คอลัมน์ ตารางยังว่างเปล่าอยู่
+2. **Attributes → Columns** — attribute ของ entity กลายเป็นคอลัมน์ในตาราง (เช่น ISBN, title และ author กลายเป็นคอลัมน์ในตาราง `Book`)
+3. **Add data values** — นำข้อมูลจริงมาใส่ในคอลัมน์ของตาราง เป็นการเปลี่ยนจาก entity เชิงแนวคิดให้กลายเป็นตารางที่จับต้องได้พร้อมข้อมูลจริง
 
-The same three steps are repeated for every other entity in the ERD (e.g., transforming the `Author` entity into an `Author` table).
+ทำซ้ำ 3 ขั้นตอนนี้กับทุก entity ใน ERD (เช่น เปลี่ยน entity `Author` ให้กลายเป็นตาราง `Author`)
 
 ---
 
 ### Best Practices for Relational Database Design
 
-- **Primary key designation** — assign a primary key (e.g., `Book ID`) to uniquely identify each entry in a table.
-- **Data validation** — implement checks for data types, ranges, and formats to ensure accuracy and consistency (e.g., ensuring `published year` only accepts numerical values within a specified range).
-- **Default values** — assign default values to certain columns to streamline data entry (e.g., defaulting the `author` column to "Unknown" when the author is not available).
-- **Use of views** — utilize views to present a customized, simplified perspective of the data, especially for complex queries or reporting (e.g., a view combining `Book` and `Author` tables into a single list without exposing the underlying complexity).
-- **Concurrency control** — implement mechanisms to manage multiple users accessing and modifying the database concurrently, preventing data inconsistency and conflicts (e.g., a "Last modified" timestamp column in the `Book` table).
+- **Primary key designation** — กำหนด primary key (เช่น `Book ID`) เพื่อระบุแต่ละ entry ในตารางอย่างไม่ซ้ำกัน
+- **Data validation** — ตรวจสอบ data type, ช่วงค่า และรูปแบบ เพื่อความถูกต้องและความสอดคล้องของข้อมูล (เช่น กำหนดให้คอลัมน์ `published year` รับเฉพาะค่าตัวเลขในช่วงที่กำหนด)
+- **Default values** — กำหนดค่าเริ่มต้นให้บางคอลัมน์เพื่อให้การกรอกข้อมูลสะดวกขึ้น (เช่น ตั้งค่า default ของคอลัมน์ `author` เป็น "Unknown" เมื่อไม่มีข้อมูลผู้แต่ง)
+- **Use of views** — ใช้ view เพื่อนำเสนอมุมมองข้อมูลที่ปรับแต่งและเรียบง่ายขึ้น โดยเฉพาะสำหรับ query ที่ซับซ้อนหรือรายงาน (เช่น view ที่รวมตาราง `Book` และ `Author` เป็นรายการเดียวโดยไม่ต้องเปิดเผยความซับซ้อนเบื้องหลัง)
+- **Concurrency control** — ใช้กลไกจัดการผู้ใช้หลายคนที่เข้าถึงและแก้ไขฐานข้อมูลพร้อมกัน เพื่อป้องกันความไม่สอดคล้องและความขัดแย้งของข้อมูล (เช่น คอลัมน์ "Last modified" ในตาราง `Book`)
 
 ---
 
@@ -258,42 +248,42 @@ The same three steps are repeated for every other entity in the ERD (e.g., trans
 
 ### What Is a Data Type
 
-A database table represents a single entity, where each column represents an attribute of that entity (e.g., a `Book` table with `title`, `publish date`, and `pages` columns). Every value in a column should be the same kind of data — the data type assigned to a column controls what it can store. A text column holds alphanumeric data, a date column only accepts valid dates, and a numeric column only accepts numbers.
+ตารางฐานข้อมูลแทน entity หนึ่งตัว โดยแต่ละคอลัมน์แทน attribute ของ entity นั้น (เช่น ตาราง `Book` ที่มีคอลัมน์ `title`, `publish date`, `pages`) ค่าทุกค่าในคอลัมน์เดียวกันควรเป็นข้อมูลชนิดเดียวกัน — data type ที่กำหนดให้คอลัมน์เป็นตัวควบคุมว่าคอลัมน์นั้นเก็บอะไรได้บ้าง คอลัมน์ text เก็บข้อมูล alphanumeric, คอลัมน์ date รับเฉพาะวันที่ที่ถูกต้อง และคอลัมน์ numeric รับเฉพาะตัวเลข
 
 ---
 
 ### Varchar
 
-Varchar is a data type for storing character strings of varying length, up to a specified maximum. For example, `VARCHAR(100)` allocates space for up to 100 characters, but a 50-character string only uses the space needed for those 50 characters — not the full 100.
+Varchar เป็น data type สำหรับเก็บ character string ที่มีความยาวไม่แน่นอน จนถึงค่าสูงสุดที่กำหนด เช่น `VARCHAR(100)` จองพื้นที่ไว้สูงสุด 100 ตัวอักษร แต่ string ที่มี 50 ตัวอักษรจะใช้พื้นที่เท่าที่จำเป็นสำหรับ 50 ตัวอักษรนั้นเท่านั้น — ไม่ใช่เต็ม 100
 
-Key considerations:
+ข้อพิจารณาสำคัญ:
 
-- **Efficiency** — Varchar only allocates the space actually used, making it more space-efficient than fixed-length types like Char.
-- **Flexibility** — ideal for strings whose length varies significantly, such as names, addresses, or descriptions.
+- **Efficiency** — Varchar จองพื้นที่เท่าที่ใช้จริงเท่านั้น จึงประหยัดพื้นที่กว่า fixed-length type อย่าง Char
+- **Flexibility** — เหมาะกับ string ที่มีความยาวแตกต่างกันมาก เช่น ชื่อ, ที่อยู่ หรือคำอธิบาย
 
 ---
 
 ### Common Data Types
 
-Different database systems handle these common types with some variation:
+ระบบฐานข้อมูลแต่ละแบบจัดการ data type พื้นฐานเหล่านี้แตกต่างกันเล็กน้อย:
 
-| Category | Type(s) | Description | Example |
+| Category | Type(s) | คำอธิบาย | ตัวอย่าง |
 | --- | --- | --- | --- |
-| Date / Time | DATE, TIME, DATETIME, TIMESTAMP | DATE stores year, month, day; TIME stores the time of day; DATETIME/TIMESTAMP combine both | In MySQL, DATE uses year-month-day format while TIMESTAMP includes both date and time |
-| Float | FLOAT | Approximate floating-point number, used when exact precision isn't necessary | `FLOAT(24)` in SQL Server |
-| Decimal | DECIMAL | Exact numeric type for precise arithmetic; more suitable for financial calculations | `DECIMAL(5,2)` stores 5 total digits, 2 after the decimal point |
-| Integer | INT, SMALLINT | Whole numbers, each type with a different supported range | INT typically ranges from -2,147,483,648 to 2,147,483,647 |
-| Binary | BLOB | Binary Large Object; stores data as a sequence of bytes, ideal for non-textual data | Images, files |
-| Char | CHAR | Fixed-length character type; always uses the specified number of characters, padding with spaces if necessary | `CHAR(10)` always stores 10 characters |
+| Date / Time | DATE, TIME, DATETIME, TIMESTAMP | DATE เก็บปี เดือน วัน; TIME เก็บเวลาในหนึ่งวัน; DATETIME/TIMESTAMP รวมทั้งวันที่และเวลา | ใน MySQL, DATE ใช้รูปแบบปี-เดือน-วัน ขณะที่ TIMESTAMP รวมทั้งวันที่และเวลา |
+| Float | FLOAT | ตัวเลขทศนิยมแบบประมาณค่า ใช้เมื่อไม่ต้องการความแม่นยำสูง | `FLOAT(24)` ใน SQL Server |
+| Decimal | DECIMAL | ตัวเลขแบบแม่นยำ เหมาะกับการคำนวณที่ต้องแม่นยำ เช่นงานการเงิน | `DECIMAL(5,2)` เก็บทั้งหมด 5 หลัก มีทศนิยม 2 ตำแหน่ง |
+| Integer | INT, SMALLINT | ตัวเลขจำนวนเต็ม แต่ละชนิดมีช่วงค่าที่รองรับต่างกัน | INT มีช่วงประมาณ -2,147,483,648 ถึง 2,147,483,647 |
+| Binary | BLOB | Binary Large Object; เก็บข้อมูลเป็นลำดับ byte เหมาะกับข้อมูลที่ไม่ใช่ข้อความ | รูปภาพ, ไฟล์ |
+| Char | CHAR | ตัวอักษรความยาวคงที่ ใช้จำนวนตัวอักษรตามที่กำหนดเสมอ โดยเติม space หากค่าสั้นกว่า | `CHAR(10)` เก็บ 10 ตัวอักษรเสมอ |
 
 ---
 
 ### Advantages of Using Appropriate Data Types
 
-- Prevents incorrect data from being inserted into a column, since the data type restricts what counts as valid input.
-- Allows date, time, and numeric data to be sorted accurately.
-- Allows accurate selection of data ranges (e.g., filtering dates or numbers within a range).
-- Enables numeric calculations on correctly typed data, such as calculating an order's total cost.
+- ป้องกันไม่ให้ข้อมูลที่ไม่ถูกต้องถูกใส่เข้าไปในคอลัมน์ เนื่องจาก data type จำกัดว่าอะไรคือ input ที่ถูกต้อง
+- ทำให้ข้อมูลวันที่ เวลา และตัวเลขถูกเรียงลำดับได้อย่างแม่นยำ
+- ทำให้เลือกช่วงข้อมูลได้อย่างแม่นยำ (เช่น กรองวันที่หรือตัวเลขในช่วงที่กำหนด)
+- รองรับการคำนวณเชิงตัวเลขบนข้อมูลที่มี type ถูกต้อง เช่น การคำนวณยอดรวมของคำสั่งซื้อ
 
 ---
 
@@ -301,59 +291,59 @@ Different database systems handle these common types with some variation:
 
 ### Sets and Set Operations
 
-A set is a collection of unique elements without a specified order, comprising items of a similar type. Sets are usually denoted with curly braces (elements listed inside) or set-builder notation (a condition describing membership). Sets underpin much of modern mathematics, including algebra, geometry, and probability.
+Set คือกลุ่มของ element ที่ไม่ซ้ำกันและไม่มีลำดับ ประกอบด้วยรายการที่เป็นชนิดเดียวกัน มักเขียนแทนด้วยวงเล็บปีกกา (ระบุ element ไว้ข้างใน) หรือ set-builder notation (เงื่อนไขที่อธิบายการเป็นสมาชิก) Set เป็นรากฐานของคณิตศาสตร์สมัยใหม่หลายแขนง รวมถึง algebra, geometry และ probability
 
-Basic set operations and concepts:
+แนวคิดและ operation พื้นฐานของ set:
 
-| Concept | Notation | Meaning |
+| Concept | Notation | ความหมาย |
 | --- | --- | --- |
-| Membership | `a ∈ A` | `a` is an element of set `A` |
-| Subset | `A ⊆ B` | Every element of `A` is also an element of `B` |
-| Union | `A ∪ B` | Elements that are in `A`, in `B`, or both |
-| Intersection | `A ∩ B` | Elements that are in both `A` and `B` |
-| Difference | `A − B` (or `A / B`) | Elements that are in `A` but not in `B` |
-| Empty set | `{}` or `∅` | A unique set with no elements; a subset of every set |
-| Power set | `P(A)` | The set of all possible subsets of `A`, including `∅` and `A` itself |
-| Universal set | `U` | The set containing all objects under consideration; all other sets are subsets of it |
-| Disjoint sets | — | Two sets that share no common element |
+| Membership | `a ∈ A` | `a` เป็นสมาชิกของ set `A` |
+| Subset | `A ⊆ B` | ทุก element ของ `A` เป็น element ของ `B` ด้วย |
+| Union | `A ∪ B` | Element ที่อยู่ใน `A`, ใน `B`, หรือทั้งคู่ |
+| Intersection | `A ∩ B` | Element ที่อยู่ทั้งใน `A` และ `B` |
+| Difference | `A − B` (หรือ `A / B`) | Element ที่อยู่ใน `A` แต่ไม่อยู่ใน `B` |
+| Empty set | `{}` หรือ `∅` | Set ที่ไม่มี element ใด ๆ เป็น subset ของทุก set |
+| Power set | `P(A)` | Set ของ subset ที่เป็นไปได้ทั้งหมดของ `A` รวมถึง `∅` และ `A` เอง |
+| Universal set | `U` | Set ที่รวมทุก object ที่พิจารณา; set อื่นทั้งหมดเป็น subset ของมัน |
+| Disjoint sets | — | สอง set ที่ไม่มี element ร่วมกันเลย |
 
-Venn diagrams are visual representations used to illustrate logical relations between sets.
+Venn diagram เป็นการนำเสนอเชิงภาพที่ใช้แสดงความสัมพันธ์เชิงตรรกะระหว่าง set
 
 ---
 
 ### Relations and Their Properties
 
-A relation is a mathematical concept built on the idea of sets — it describes connections between elements of sets and is essential to set theory and logic. Common types include:
+Relation คือแนวคิดทางคณิตศาสตร์ที่สร้างบนแนวคิดของ set — อธิบายความเชื่อมโยงระหว่าง element ของ set และเป็นแนวคิดสำคัญของ set theory และ logic ประเภทที่พบบ่อยได้แก่:
 
-- **Binary relation** — a connection between two elements (e.g., the "less than" relation, as in 3 < 5).
-- **Ordered pairs** — a subset of the Cartesian product `A × B`, representing a binary relation on sets `A` and `B`, denoted `(a, b)`.
+- **Binary relation** — ความเชื่อมโยงระหว่าง element สองตัว (เช่น relation "less than" อย่าง 3 < 5)
+- **Ordered pairs** — subset ของ Cartesian product `A × B` แทน binary relation บน set `A` และ `B` เขียนแทนด้วย `(a, b)`
 
-Relations can exhibit the following properties:
+Relation อาจมีคุณสมบัติดังนี้:
 
-| Property | Definition | Example |
+| Property | นิยาม | ตัวอย่าง |
 | --- | --- | --- |
-| Reflexivity | Each element relates to itself | Equality — `A = A` for any element `A` |
-| Symmetry | If `A` relates to `B`, then `B` also relates to `A` | "Is a sibling of" |
-| Transitivity | If `A` relates to `B` and `B` relates to `C`, then `A` relates to `C` | "Less than" — if `A < B` and `B < C`, then `A < C` |
-| Anti-symmetry | If `A` relates to `B` and `B` relates to `A`, then `A` must equal `B` | "Less than or equal to" |
+| Reflexivity | Element แต่ละตัวสัมพันธ์กับตัวมันเอง | Equality — `A = A` สำหรับทุก element `A` |
+| Symmetry | ถ้า `A` สัมพันธ์กับ `B` แล้ว `B` ก็สัมพันธ์กับ `A` ด้วย | "Is a sibling of" |
+| Transitivity | ถ้า `A` สัมพันธ์กับ `B` และ `B` สัมพันธ์กับ `C` แล้ว `A` สัมพันธ์กับ `C` | "Less than" — ถ้า `A < B` และ `B < C` แล้ว `A < C` |
+| Anti-symmetry | ถ้า `A` สัมพันธ์กับ `B` และ `B` สัมพันธ์กับ `A` แล้ว `A` ต้องเท่ากับ `B` | "Less than or equal to" |
 
 ---
 
 ### Relation Schema vs. Relation Instance
 
-A relation consists of two essential components:
+Relation ประกอบด้วยองค์ประกอบสำคัญ 2 อย่าง:
 
-- **Relation schema** — specifies the structure: the name of the relation, and the name and data type of each column (attribute). For example, for an `Author` relation: `Author_ID` (CHAR — a fixed-length character string), `last_name`, `first_name`, `email` (VARCHAR — a variable-length character string), and `country` (CHAR).
-- **Relation instance** — the actual real-world data stored in the table, made up of rows and columns. The columns correspond to the attributes defined in the schema, and the rows represent tuples (individual records).
+- **Relation schema** — ระบุโครงสร้าง: ชื่อของ relation และชื่อ/data type ของแต่ละคอลัมน์ (attribute) เช่น สำหรับ relation `Author`: `Author_ID` (CHAR — string ความยาวคงที่), `last_name`, `first_name`, `email` (VARCHAR — string ความยาวไม่คงที่) และ `country` (CHAR)
+- **Relation instance** — ข้อมูลจริงในโลกจริงที่จัดเก็บในตาราง ประกอบด้วยแถวและคอลัมน์ คอลัมน์สอดคล้องกับ attribute ที่กำหนดใน schema และแถวแทน tuple (record แต่ละรายการ)
 
 ---
 
 ### Degree and Cardinality
 
-- **Degree** — the number of attributes (columns) in a relation.
-- **Cardinality** — the number of tuples (rows) in a relation.
+- **Degree** — จำนวน attribute (คอลัมน์) ใน relation
+- **Cardinality** — จำนวน tuple (แถว) ใน relation
 
-In the lesson's `Author` example: degree is 6 (six columns: `Author_ID`, `last_name`, `first_name`, `email`, `city`, `country`) and cardinality is 5 (five rows of data).
+ในตัวอย่าง `Author` ของบทเรียน: degree เท่ากับ 6 (หกคอลัมน์: `Author_ID`, `last_name`, `first_name`, `email`, `city`, `country`) และ cardinality เท่ากับ 5 (ห้าแถวของข้อมูล)
 
 ---
 
@@ -361,93 +351,99 @@ In the lesson's `Author` example: degree is 6 (six columns: `Author_ID`, `last_n
 
 | Term | Definition |
 | --- | --- |
-| Structured data | Highly organized data following a predefined schema, typically in rows and columns |
-| Unstructured data | Data with no specific format or predefined organization |
-| Semi-structured data | Data with some organizational properties (tags/hierarchy) but no strict tabular structure |
-| CSV | Comma-separated values — a delimited text file format |
-| TSV | Tab-separated values — a delimited text file format |
-| XML | Extensible Markup Language — encodes data using tags, attributes, and schema |
-| JSON | JavaScript Object Notation — encodes data using arrays and objects with keys |
-| Data repository | A centralized system that stores, manages, and organizes data |
-| RDBMS | Relational Database Management System — software managing relational databases |
-| OLTP | Online Transaction Processing — systems supporting day-to-day operational transactions |
-| OLAP | Online Analytical Processing — systems for querying/analyzing large datasets for insights |
-| MongoDB | A document-oriented, non-relational database suited to semi-structured/unstructured data |
-| Information model | An abstract, conceptual representation of entities, properties, relationships, and functions |
-| Data model | A technical blueprint translating an information model into a database structure |
-| Hierarchical model | An early database model that physically structures data in a tree-like format |
-| Relational model | The most widely used data model; stores data in tables with logical/physical/storage independence |
-| Entity-Relationship (ER) model | A conceptual model representing a database as entities and their relationships |
-| Entity | A real-world object, concept, or thing that stores and manages data, represented as a rectangle in an ERD |
-| Attribute | A characteristic (property) of an entity, represented as an oval, connected to exactly one entity |
-| ERD | Entity Relationship Diagram — a visual/graphical representation of entities and their relationships in a database |
-| Normalization | The process of organizing data to reduce redundancy and ensure integrity |
-| Foreign key | A field linking one table to the primary key of another, representing a relationship |
-| Logical data independence | Ability to change database structure without affecting user data access |
-| Physical data independence | Ability to change internal storage/indexing without affecting user views/applications |
-| Physical storage independence | Ability to move/reorganize data on storage devices without affecting applications |
-| Relationship set | A diamond-shaped element illustrating how two entities are interconnected |
-| Crow's foot notation | A notation using symbols (>, <, vertical lines) to indicate the type and quantity of a relationship |
-| One-to-one relationship | Each entity instance is linked to exactly one instance of another entity |
-| One-to-many relationship | One entity instance is linked to multiple instances of another entity |
-| Many-to-many relationship | Multiple instances of one entity are linked to multiple instances of another entity |
-| Cardinality (ERD sense) | The numeric nature of a relationship (one vs. many) between connected entities |
-| Relational database | A database model that organizes data into tables, with relationships between tables based on common fields |
-| Relationship | A connection illustrating how entities interrelate, shown as a line between entity rectangles |
-| Primary key | An exclusive identifier assigned to each entry in a table to uniquely identify it |
-| Data validation | Mechanisms that check data types, ranges, and formats to ensure accuracy and consistency of entered data |
-| Default value | A pre-set value assigned to a column to streamline data entry when no value is provided |
-| View | A customized, simplified perspective of data, often combining multiple tables, used to simplify complex queries or reporting |
-| Concurrency control | Mechanisms that manage multiple users' simultaneous access to and modification of a database to prevent inconsistency and conflicts |
-| Data type | A property assigned to a column that defines what kind of data it can store and validates data entered into it |
-| Varchar | Variable character — a data type that stores character strings of varying length up to a specified maximum |
-| Char | A fixed-length character data type that pads values with spaces to always use the specified number of characters |
-| DATE | A data type storing a calendar date (year, month, day) |
-| TIME | A data type storing a time of day |
-| DATETIME / TIMESTAMP | A data type storing a combined date and time value |
-| Float | An approximate, floating-point numeric data type used when exact precision isn't required |
-| Decimal | An exact numeric data type used for precise arithmetic, such as financial calculations |
-| Integer (INT, SMALLINT) | Data types that store whole numbers, each with its own supported range |
-| Binary / BLOB | Binary Large Object — a data type that stores non-textual data (e.g., images, files) as a sequence of bytes |
-| Set | A collection of unique elements without a specified order |
-| Relation | A mathematical concept, based on sets, describing connections between elements |
-| Binary relation | A relation establishing a connection between two elements |
-| Ordered pair | A subset of the Cartesian product of two sets, representing a binary relation |
-| Reflexivity | A relation property where each element relates to itself |
-| Symmetry | A relation property where A relating to B implies B relates to A |
-| Transitivity | A relation property where A relating to B and B relating to C implies A relates to C |
-| Anti-symmetry | A relation property where A relating to B and B relating to A implies A equals B |
-| Relation schema | The structure of a relation — its name and the name/type of each attribute |
-| Relation instance | The actual data (rows and columns) stored for a relation |
-| Tuple | A row in a relation instance |
-| Degree | The number of attributes (columns) in a relation |
-| Cardinality (relational-model sense) | The number of tuples (rows) in a relation |
-| CHAR | A data type storing a fixed-length character string |
-| VARCHAR | A data type storing a variable-length character string |
+| Structured data | ข้อมูลที่มีการจัดระเบียบสูง เป็นไปตาม schema ที่กำหนดไว้ล่วงหน้า มักอยู่ในรูปแบบแถวและคอลัมน์ |
+| Unstructured data | ข้อมูลที่ไม่มีรูปแบบหรือการจัดระเบียบเฉพาะเจาะจง |
+| Semi-structured data | ข้อมูลที่มีคุณสมบัติการจัดระเบียบบางส่วน (tag/hierarchy) แต่ไม่ใช่โครงสร้างตารางที่เคร่งครัด |
+| CSV | Comma-separated values — รูปแบบ delimited text file |
+| TSV | Tab-separated values — รูปแบบ delimited text file |
+| XML | Extensible Markup Language — encode ข้อมูลด้วย tag, attribute และ schema |
+| JSON | JavaScript Object Notation — encode ข้อมูลด้วย array และ object ที่มี key |
+| Data repository | ระบบรวมศูนย์ที่จัดเก็บ จัดการ และจัดระเบียบข้อมูล |
+| RDBMS | Relational Database Management System — ซอฟต์แวร์จัดการฐานข้อมูลเชิงสัมพันธ์ |
+| OLTP | Online Transaction Processing — ระบบรองรับ transaction เชิงปฏิบัติการประจำวัน |
+| OLAP | Online Analytical Processing — ระบบสำหรับ query/วิเคราะห์ข้อมูลปริมาณมากเพื่อหา insight |
+| MongoDB | ฐานข้อมูล non-relational แบบ document-oriented เหมาะกับข้อมูล semi-structured/unstructured |
+| Database Object | องค์ประกอบเชิงโครงสร้างที่ถูกสร้าง จัดเก็บ และใช้งานภายในฐานข้อมูล เช่น table, view, index, stored procedure |
+| Index | โครงสร้างที่ช่วยให้ค้นหาแถวข้อมูลในตารางได้เร็วขึ้น โดยไม่ต้องไล่อ่านทั้งตาราง |
+| Stored Procedure | ชุดคำสั่ง SQL ที่เขียนไว้ล่วงหน้าและเรียกใช้งานซ้ำได้ |
+| Trigger | ชุดคำสั่งที่ทำงานอัตโนมัติเมื่อมีเหตุการณ์เกิดขึ้นกับตาราง เช่น insert, update, delete |
+| Schema (object) | พื้นที่เชิงตรรกะที่ใช้จัดกลุ่ม database object ต่าง ๆ ไว้ด้วยกัน |
+| Sequence | Object ที่สร้างค่าตัวเลขเพิ่มขึ้นเรื่อย ๆ โดยอัตโนมัติ มักใช้เป็นค่า primary key |
+| Information model | การนำเสนอเชิงแนวคิดแบบนามธรรมของ entity, property, relationship และ function |
+| Data model | Blueprint ทางเทคนิคที่แปลง information model ให้เป็นโครงสร้างฐานข้อมูล |
+| Hierarchical model | Data model ยุคแรกที่จัดโครงสร้างข้อมูลแบบ tree ทางกายภาพ |
+| Relational model | Data model ที่ใช้กันแพร่หลายที่สุด จัดเก็บข้อมูลในตาราง พร้อม logical/physical/storage independence |
+| Entity-Relationship (ER) model | Model เชิงแนวคิดที่แสดงฐานข้อมูลเป็น entity และความสัมพันธ์ระหว่างกัน |
+| Entity | วัตถุ แนวคิด หรือสิ่งของในโลกจริงที่จัดเก็บและจัดการข้อมูล แสดงเป็นสี่เหลี่ยมใน ERD |
+| Attribute | คุณลักษณะ (property) ของ entity แสดงเป็นวงรี เชื่อมกับ entity เพียงตัวเดียว |
+| ERD | Entity Relationship Diagram — การนำเสนอเชิงภาพ/graphical ของ entity และความสัมพันธ์ในฐานข้อมูล |
+| Normalization | กระบวนการจัดระเบียบข้อมูลเพื่อลดความซ้ำซ้อนและรักษาความถูกต้องของข้อมูล |
+| Foreign key | Field ที่เชื่อมโยงตารางหนึ่งไปยัง primary key ของอีกตาราง แทนความสัมพันธ์ |
+| Logical data independence | ความสามารถในการเปลี่ยนโครงสร้างฐานข้อมูลโดยไม่กระทบการเข้าถึงข้อมูลของผู้ใช้ |
+| Physical data independence | ความสามารถในการเปลี่ยนการจัดเก็บ/indexing ภายในโดยไม่กระทบ view หรือแอปพลิเคชันของผู้ใช้ |
+| Physical storage independence | ความสามารถในการย้าย/จัดระเบียบข้อมูลบนอุปกรณ์จัดเก็บโดยไม่กระทบแอปพลิเคชัน |
+| Relationship set | องค์ประกอบรูปสี่เหลี่ยมข้าวหลามตัดที่แสดงว่า entity สองตัวเชื่อมโยงกันอย่างไร |
+| Crow's foot notation | Notation ที่ใช้สัญลักษณ์ (>, <, เส้นแนวตั้ง) เพื่อบ่งบอกชนิดและปริมาณของความสัมพันธ์ |
+| One-to-one relationship | Instance ของ entity หนึ่งเชื่อมกับ instance เพียงหนึ่งเดียวของอีก entity |
+| One-to-many relationship | Instance ของ entity หนึ่งเชื่อมกับ instance หลายตัวของอีก entity |
+| Many-to-many relationship | Instance หลายตัวของ entity หนึ่งเชื่อมกับ instance หลายตัวของอีก entity |
+| Cardinality (ในความหมาย ERD) | ลักษณะเชิงตัวเลขของความสัมพันธ์ (one vs many) ระหว่าง entity ที่เชื่อมกัน |
+| Relational database | โมเดลฐานข้อมูลที่จัดข้อมูลเป็นตาราง โดยความสัมพันธ์ระหว่างตารางขึ้นอยู่กับ field ที่ใช้ร่วมกัน |
+| Relationship | ความเชื่อมโยงที่แสดงว่า entity สัมพันธ์กันอย่างไร แสดงเป็นเส้นระหว่างสี่เหลี่ยมของ entity |
+| Primary key | ตัวระบุเฉพาะที่กำหนดให้แต่ละ entry ในตาราง เพื่อระบุอย่างไม่ซ้ำกัน |
+| Data validation | กลไกตรวจสอบ data type, ช่วงค่า และรูปแบบ เพื่อความถูกต้องและความสอดคล้องของข้อมูลที่ป้อนเข้ามา |
+| Default value | ค่าที่กำหนดไว้ล่วงหน้าให้กับคอลัมน์ เพื่อให้การกรอกข้อมูลสะดวกขึ้นเมื่อไม่มีการระบุค่า |
+| View | database object ที่เป็นมุมมองเสมือนสร้างจาก query บนตารางหนึ่งตัวหรือมากกว่า ไม่เก็บข้อมูลซ้ำจากตารางต้นฉบับ มักใช้เพื่อลดความซับซ้อนของ query หรือรายงาน |
+| Concurrency control | กลไกจัดการผู้ใช้หลายคนที่เข้าถึงและแก้ไขฐานข้อมูลพร้อมกัน เพื่อป้องกันความไม่สอดคล้องและความขัดแย้ง |
+| Data type | คุณสมบัติที่กำหนดให้คอลัมน์ ระบุว่าคอลัมน์นั้นเก็บข้อมูลชนิดใดได้บ้าง และตรวจสอบข้อมูลที่ป้อนเข้ามา |
+| Varchar | Variable character — data type ที่เก็บ character string ความยาวไม่แน่นอน จนถึงค่าสูงสุดที่กำหนด |
+| Char | Data type ตัวอักษรความยาวคงที่ เติม space ให้ครบตามจำนวนที่กำหนดเสมอ |
+| DATE | Data type ที่เก็บวันที่ตามปฏิทิน (ปี เดือน วัน) |
+| TIME | Data type ที่เก็บเวลาในหนึ่งวัน |
+| DATETIME / TIMESTAMP | Data type ที่เก็บค่าวันที่และเวลารวมกัน |
+| Float | Data type ตัวเลขทศนิยมแบบประมาณค่า ใช้เมื่อไม่ต้องการความแม่นยำสูง |
+| Decimal | Data type ตัวเลขแบบแม่นยำ ใช้สำหรับการคำนวณที่ต้องแม่นยำ เช่นงานการเงิน |
+| Integer (INT, SMALLINT) | Data type ที่เก็บตัวเลขจำนวนเต็ม แต่ละชนิดมีช่วงค่าที่รองรับของตัวเอง |
+| Binary / BLOB | Binary Large Object — data type ที่เก็บข้อมูลที่ไม่ใช่ข้อความ (เช่น รูปภาพ, ไฟล์) เป็นลำดับ byte |
+| Set | กลุ่มของ element ที่ไม่ซ้ำกันและไม่มีลำดับ |
+| Relation | แนวคิดทางคณิตศาสตร์ที่สร้างบนแนวคิดของ set อธิบายความเชื่อมโยงระหว่าง element |
+| Binary relation | Relation ที่สร้างความเชื่อมโยงระหว่าง element สองตัว |
+| Ordered pair | Subset ของ Cartesian product ของสอง set แทน binary relation |
+| Reflexivity | คุณสมบัติของ relation ที่ element แต่ละตัวสัมพันธ์กับตัวมันเอง |
+| Symmetry | คุณสมบัติของ relation ที่ A สัมพันธ์กับ B แล้วนัยว่า B สัมพันธ์กับ A |
+| Transitivity | คุณสมบัติของ relation ที่ A สัมพันธ์กับ B และ B สัมพันธ์กับ C แล้วนัยว่า A สัมพันธ์กับ C |
+| Anti-symmetry | คุณสมบัติของ relation ที่ A สัมพันธ์กับ B และ B สัมพันธ์กับ A แล้วนัยว่า A เท่ากับ B |
+| Relation schema | โครงสร้างของ relation — ชื่อและชื่อ/type ของแต่ละ attribute |
+| Relation instance | ข้อมูลจริง (แถวและคอลัมน์) ที่จัดเก็บสำหรับ relation |
+| Tuple | แถวหนึ่งใน relation instance |
+| Degree | จำนวน attribute (คอลัมน์) ใน relation |
+| Cardinality (ในความหมาย relational model) | จำนวน tuple (แถว) ใน relation |
+| CHAR | Data type ที่เก็บ character string ความยาวคงที่ |
+| VARCHAR | Data type ที่เก็บ character string ความยาวไม่คงที่ |
 
 ---
 
 ## ❓ My Questions & Gaps
 
-- [ ] What specifically distinguishes a data warehouse from a data lake within OLAP systems?
-- [ ] How does normalization in RDBMS concretely reduce data duplication (need a worked example)?
-- [ ] In practice, what criteria decide when to use a non-relational database (e.g., MongoDB) over a relational one?
-- [ ] What are the concrete steps to convert an ER diagram into relational tables (beyond entity → table, attribute → column)?
-- [ ] What specific structural limitation causes many-to-many relationship problems in the hierarchical model?
-- [ ] In practice, how do the three independence types differ when a real schema change is made (e.g., adding an index vs. adding a column)?
-- [ ] How does crow's foot notation visually distinguish optional participation (zero-or-many) from mandatory participation (one-or-many)?
-- [ ] How is a many-to-many relationship actually implemented in a relational schema (e.g., via a junction/associative table) — not covered in this lesson?
-- [ ] Why are attributes typically omitted from relationship-type diagrams, and when would you need to include them?
-- [ ] How exactly are relationships (e.g., one-to-many between `Author` and `Book`) implemented at the table level — via foreign keys — since this lesson only covered mapping entities and attributes, not relationships?
-- [ ] What is the difference between a primary key and other unique identifiers, and when would a table need a composite primary key?
-- [ ] How do views interact with concurrency control — do they reflect live data changes, or a snapshot at query time?
-- [ ] What are the practical differences between DATETIME and TIMESTAMP across database systems (e.g., time zone handling, range limits)?
-- [ ] Does choosing a large VARCHAR max length (e.g., VARCHAR(255) vs VARCHAR(50)) have any real performance or indexing cost even though storage is only used as needed?
-- [ ] In practice, when would Float be an acceptable choice over Decimal beyond financial calculations — are there performance tradeoffs?
-- [ ] Are there size limits or best practices for storing large files in a BLOB column versus storing a file path/reference instead?
-- [ ] How do relation properties (reflexivity, symmetry, transitivity, anti-symmetry) map onto practical database design decisions, or are they purely theoretical foundations?
-- [ ] How does the relational model's concept of a "relation" differ in practice from a SQL "table" — are there edge cases where they diverge (e.g., duplicate rows)?
-- [ ] Does cardinality in the relational-model sense (row count) ever get confused with cardinality in ER-diagram relationships (one-to-many, etc.)? How should the two uses of the term be distinguished?
+- [ ] อะไรคือความแตกต่างที่ชัดเจนระหว่าง data warehouse กับ data lake ในกลุ่มระบบ OLAP
+- [ ] Normalization ใน RDBMS ช่วยลดความซ้ำซ้อนของข้อมูลได้อย่างเป็นรูปธรรมอย่างไร (อยากได้ตัวอย่างประกอบ)
+- [ ] ในทางปฏิบัติ ใช้เกณฑ์อะไรตัดสินใจว่าเมื่อไรควรใช้ non-relational database (เช่น MongoDB) แทน relational database
+- [ ] ขั้นตอนที่เป็นรูปธรรมในการแปลง ER diagram เป็นตาราง relational มีอะไรบ้าง (นอกเหนือจาก entity → table, attribute → column)
+- [ ] ข้อจำกัดเชิงโครงสร้างแบบไหนที่ทำให้ hierarchical model มีปัญหากับความสัมพันธ์ many-to-many
+- [ ] ในทางปฏิบัติ independence ทั้งสามแบบต่างกันอย่างไรเมื่อมีการเปลี่ยนแปลง schema จริง (เช่น เพิ่ม index เทียบกับเพิ่มคอลัมน์)
+- [ ] Crow's foot notation แยกความแตกต่างระหว่าง optional participation (zero-or-many) กับ mandatory participation (one-or-many) ได้อย่างไร
+- [ ] ความสัมพันธ์แบบ many-to-many ถูก implement จริงในระดับ schema อย่างไร (เช่นผ่าน junction/associative table) — บทเรียนนี้ยังไม่ครอบคลุม
+- [ ] เหตุใด attribute มักถูกละไว้ใน diagram ที่แสดงประเภทความสัมพันธ์ และควรใส่กลับเมื่อไร
+- [ ] ความสัมพันธ์ (เช่น one-to-many ระหว่าง `Author` กับ `Book`) ถูก implement ในระดับตารางอย่างไร — ผ่าน foreign key — เนื่องจากบทเรียนนี้ครอบคลุมแค่การ map entity และ attribute ยังไม่รวมความสัมพันธ์
+- [ ] Primary key ต่างจาก unique identifier แบบอื่นอย่างไร และเมื่อไรที่ตารางต้องใช้ composite primary key
+- [ ] View มีปฏิสัมพันธ์กับ concurrency control อย่างไร — สะท้อนข้อมูลที่เปลี่ยนแปลงแบบ live หรือเป็นแค่ snapshot ณ เวลาที่ query
+- [ ] ความแตกต่างเชิงปฏิบัติระหว่าง DATETIME กับ TIMESTAMP ในแต่ละระบบฐานข้อมูลมีอะไรบ้าง (เช่น การจัดการ time zone, ขอบเขตค่า)
+- [ ] การเลือก VARCHAR ที่มีความยาวสูงสุดมาก (เช่น VARCHAR(255) เทียบกับ VARCHAR(50)) มีผลด้าน performance หรือ indexing จริงหรือไม่ ทั้งที่พื้นที่จัดเก็บใช้เท่าที่จำเป็นเท่านั้น
+- [ ] ในทางปฏิบัติ เมื่อไรที่ Float เป็นตัวเลือกที่ยอมรับได้มากกว่า Decimal นอกเหนือจากงานการเงิน มี performance tradeoff หรือไม่
+- [ ] มีขีดจำกัดขนาดหรือ best practice ในการเก็บไฟล์ขนาดใหญ่ในคอลัมน์ BLOB เทียบกับการเก็บ path/reference ของไฟล์แทนหรือไม่
+- [ ] คุณสมบัติของ relation (reflexivity, symmetry, transitivity, anti-symmetry) เชื่อมโยงกับการตัดสินใจออกแบบฐานข้อมูลจริงอย่างไร หรือเป็นเพียงรากฐานเชิงทฤษฎี
+- [ ] แนวคิด "relation" ของ relational model ต่างจาก SQL "table" ในทางปฏิบัติอย่างไร มี edge case ที่ต่างกันหรือไม่ (เช่น แถวที่ซ้ำกัน)
+- [ ] Cardinality ในความหมายของ relational model (จำนวนแถว) สับสนกับ cardinality ในความสัมพันธ์แบบ ER diagram (one-to-many ฯลฯ) หรือไม่ ควรแยกสองความหมายนี้อย่างไร
 
 ---
 
