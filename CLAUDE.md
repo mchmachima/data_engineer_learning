@@ -27,76 +27,16 @@ Triggered when the user pastes lesson text, a transcript, or describes what they
 **Steps:**
 
 1. Identify the course, module, and lesson number and title from the pasted content — ask if unclear.
-2. Generate a `.md` file using the **Note Template** below.
+2. Generate a `.md` file using the **Note Template** at `.claude/templates/note-template.md`.
 3. Save it to the correct folder path:
    `IBM-DE_C<NN>_<Course-Name>/IBM-DE_C<NN>_M<NN>_<Module-Name>/IBM-DE_C<NN>_M<NN>_L<NN>_<Lesson-Name>.md`
    - Create course and module folders if they do not exist
    - e.g. `IBM-DE_C02_Python-for-Data-Science-AI-Development/IBM-DE_C02_M03_Python-Programming-Fundamentals/IBM-DE_C02_M03_L01_Conditions-and-Branching.md`
 4. Confirm the file path to the user after saving.
 
-**Note Template:**
-
-````markdown
-# L<NN> [Lesson Title]
-
-- **Certificate:** IBM Data Engineering Professional Certificate
-- **Course:** C<NN> [Course Name]
-- **Module:** M<NN> [Module Title]
-- **Date studied:** [YYYY-MM-DD]
-
----
-
-## 📌 Key Concepts
-
-- [Bullet-point summary of the most important ideas across all topics in this lesson]
-
----
-
-## [Topic 1 Name]
-
-[Detail and explanation of this topic]
-
-```python
-# [What this code does — one line description]
-[code here]
-```
-````
-
----
-
-## [Topic 2 Name]
-
-[Detail and explanation of this topic]
-
-```python
-# [What this code does — one line description]
-[code here]
-```
-
----
-
-## 📖 Key Terms & Glossary
-
-| Term   | Definition                 |
-| ------ | -------------------------- |
-| [term] | [plain-English definition] |
-
----
-
-## ❓ My Questions & Gaps
-
-- [ ] [Any concept that was unclear or needs follow-up]
-
----
-
-## 🔗 Resources
-
-- [Any links, docs, or tools mentioned in the lesson]
-
-````
-
 **Quality rules:**
-- Key Concepts: write in plain English, no fluff. Aim for 5–10 bullets summarising the whole lesson.
+- Overview: a short 2–4 sentence paragraph, not bullets. Frame what the lesson covers and why it matters — don't repeat what the topic sections below already detail.
+- Table of Contents: generate real anchor links to the note's actual sections (in order: Overview, each topic by its real name, Glossary, Questions & Gaps, Resources). Generate this last, after the rest of the note is finalized, so the links are accurate.
 - Topic sections: name each section after the actual lesson topic (e.g. `## Lists`, `## Tuples`) — not generic names like `## Content 1`.
 - Code: embed code directly inside the relevant topic section; add a one-line comment above each block explaining what it does.
 - Glossary: include every technical term introduced, even ones that seem obvious.
@@ -112,40 +52,9 @@ Triggered when the user asks about their plan, schedule, timeline, or weekly goa
 
 **Steps:**
 1. Check what course/module the user is currently on (ask if not stated).
-2. Generate or update a study plan using the **Plan Template** below.
+2. Generate or update a study plan using the **Plan Template** at `.claude/templates/study-plan-template.md`.
 3. Save as `Study-Plan.md` in the root of this project folder (overwrite each update).
 4. Confirm the file path to the user after saving.
-
-**Plan Template:**
-
-```markdown
-# Data Engineering Study Plan
-**Updated:** [YYYY-MM-DD]
-**Current position:** IBM DE Cert — Course [N], Module [M]
-**Target:** Complete IBM cert by Sep–Oct 2026 → Job search → Azure Databricks
-
----
-
-## 🎯 High-Level Milestones
-| Milestone | Target Date |
-|-----------|-------------|
-| Finish IBM DE Cert (Course 13) | Sep 2026 |
-| Resume + interview prep | Oct 2026 |
-| Begin Azure Databricks course | Oct–Nov 2026 |
-
----
-
-## 📅 Weekly Breakdown
-*(From current week through end of IBM cert)*
-
-### Week [N] — [Date range]
-**Goal:** [Course X, Modules Y–Z]
-- [ ] [Specific lesson or module]
-- [ ] [Specific lesson or module]
-
-### Week [N+1] — [Date range]
-...
-````
 
 **Planning rules:**
 
@@ -220,6 +129,8 @@ IBM-Data-Engineering-Certificate/
 │       └── IBM-DE_C02_M02_L02_Tuples.md
 └── ...
 ```
+
+The Note Template and Plan Template live at `.claude/templates/note-template.md` and `.claude/templates/study-plan-template.md` (repo root, alongside `.claude/commands/`), not inside `IBM-Data-Engineering-Certificate/`.
 
 ## File Naming Rules
 
