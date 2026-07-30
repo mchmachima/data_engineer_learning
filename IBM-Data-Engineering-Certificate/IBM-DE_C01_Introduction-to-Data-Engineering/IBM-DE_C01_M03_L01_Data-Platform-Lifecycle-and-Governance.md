@@ -7,17 +7,26 @@
 
 ---
 
-## 📌 Key Concepts
+## Table of Contents
 
-- A data platform has 5 layers: Ingestion → Storage & Integration → Processing → Analysis/UI → Pipeline (overlays all).
-- Data store design is driven by: data type, volume, intended use (OLTP vs OLAP), and security requirements.
-- Data wrangling = iterative process of exploring, transforming, cleaning, and validating data to make it analytics-ready.
-- Key wrangling operations: structuring (joins/unions), normalization, denormalization, and data cleaning.
-- SQL aggregation functions (COUNT, SUM, AVG, MAX, MIN) plus GROUP BY and LIKE are core querying tools.
-- Performance tuning focuses on: indexing, partitioning, normalization, capacity planning, and monitoring.
-- Security is structured around the CIA Triad: Confidentiality, Integrity, Availability.
-- Governance ensures data lifecycle compliance under regulations: GDPR, CCPA, HIPAA, PCI DSS, SOX.
-- Compliance tools: authentication/access control, encryption, anonymization, pseudonymization, monitoring, data erasure.
+- [Overview](#overview)
+- [Data Platform Architecture](#data-platform-architecture)
+- [Factors for Selecting a Data Store](#factors-for-selecting-a-data-store)
+- [Data Collection Methods](#data-collection-methods)
+- [Data Wrangling](#data-wrangling)
+- [Querying Data](#querying-data)
+- [Performance Tuning and Troubleshooting](#performance-tuning-and-troubleshooting)
+- [Security: The CIA Triad](#security-the-cia-triad)
+- [Governance and Compliance](#governance-and-compliance)
+- [📖 Key Terms & Glossary](#-key-terms--glossary)
+- [❓ My Questions & Gaps](#-my-questions--gaps)
+- [🔗 Resources](#-resources)
+
+---
+
+## Overview
+
+This lesson walks through the layered architecture of a data platform — from ingestion through pipelines — and the factors that drive data store selection and collection methods. It then covers data wrangling and querying as the core hands-on work of preparing data, performance tuning and troubleshooting as an operational discipline, and closes with security (the CIA Triad) and governance/compliance as the guardrails that apply across the whole data lifecycle.
 
 ---
 

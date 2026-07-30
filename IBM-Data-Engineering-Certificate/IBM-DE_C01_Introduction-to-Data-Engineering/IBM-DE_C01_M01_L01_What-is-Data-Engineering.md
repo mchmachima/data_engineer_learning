@@ -7,17 +7,24 @@
 
 ---
 
-## 📌 Key Concepts
+## Table of Contents
 
-- A modern data ecosystem is a network of interconnected entities: data sources, tools, stakeholders, and infrastructure.
-- The 3 stages of working with data are: acquiring, organizing/preparing, and delivering to end-users.
-- Data Engineer's core job: make **analytics-ready data** available — accurate, compliant, and accessible.
-- Data roles form a chain: Engineer → Analyst → Scientist → Business/BI Analyst.
-- Beyond DE, there are specialized roles: Data Warehouse Engineer, Data Architect, Data Manager, DBA.
-- DE scope covers 4 areas: collecting source data, processing, storing, and making data available.
-- No single person masters all DE skills — specialization + broad awareness is the goal.
-- Key technical skills: OS/infra, databases (SQL + NoSQL), pipelines, ETL tools, Python/R/Java, Big Data tools.
-- Soft skills matter: communication, collaboration, translating business needs into technical specs.
+- [Overview](#overview)
+- [Modern Data Ecosystem](#modern-data-ecosystem)
+- [Key Roles in the Data Ecosystem](#key-roles-in-the-data-ecosystem)
+- [Specializations in Data Engineering](#specializations-in-data-engineering)
+- [Scope of Data Engineering](#scope-of-data-engineering)
+- [Responsibilities and Skillsets](#responsibilities-and-skillsets)
+- [Real-World Example: Social Media Sentiment Analysis](#real-world-example-social-media-sentiment-analysis)
+- [📖 Key Terms & Glossary](#-key-terms--glossary)
+- [❓ My Questions & Gaps](#-my-questions--gaps)
+- [🔗 Resources](#-resources)
+
+---
+
+## Overview
+
+This lesson introduces the modern data ecosystem — the network of sources, tools, and stakeholders that data moves through — and where the Data Engineer fits within it. It maps out the chain of data roles (Engineer, Analyst, Scientist, Business/BI Analyst) and the specialized DE roles that branch off it (Data Warehouse Engineer, Data Architect, Data Manager, DBA), then walks through the DE's core scope, required technical and soft skills, and a real-world sentiment-analysis example tying it all together.
 
 ---
 
@@ -56,7 +63,7 @@ A data ecosystem includes:
 ## Specializations in Data Engineering
 
 | Role                         | Focus                                                       |
-| ---------------------------- | ----------------------------------------------------------- |
+| ---------------------------- | ------------------------------------------------------------- |
 | Data Warehouse Engineer      | ETL pipelines, data warehouses, data lakes for BI           |
 | Data Architect               | Overall data architecture, integration strategy, governance |
 | Data Manager                 | Data governance, compliance, access policies, data literacy |
@@ -97,7 +104,7 @@ A data ecosystem includes:
 ## Real-World Example: Social Media Sentiment Analysis
 
 | Step     | What the DE did                                                   |
-| -------- | ----------------------------------------------------------------- |
+| -------- | ------------------------------------------------------------------- |
 | Collect  | Pulled tweets via APIs and scraped eCommerce reviews              |
 | Process  | Built a Python program to clean and transform data into DB format |
 | Pipeline | Automated the ETL process so the dashboard updates in real-time   |

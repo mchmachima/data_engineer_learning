@@ -7,18 +7,27 @@
 
 ---
 
-## 📌 Key Concepts
+## Table of Contents
 
-- Data is categorized into 3 types: structured, semi-structured, and unstructured.
-- Common file formats: CSV, TSV, XLSX, XML, PDF, JSON — each suited to different use cases.
-- Data sources include: relational DBs, flat files, APIs, web scraping, data streams, RSS feeds.
-- Repositories split into OLTP (transactional) and OLAP (analytical) systems.
-- RDBMS excels at structured data with ACID compliance; NoSQL handles flexible, schema-less data.
-- Data Warehouse = single source of truth for analysis; Data Lake = raw dump for future use; Lakehouse = both.
-- ETL: transform before loading; ELT: load first, transform in the target using its compute power.
-- Big Data is defined by 5 V's: Velocity, Volume, Variety, Veracity, Value.
-- Hadoop (distributed storage), Hive (SQL on Hadoop), and Spark (fast in-memory processing) are the Big Data trio.
-- Metadata has 3 types: Technical, Process, Business — all important for governance and data lineage.
+- [Overview](#overview)
+- [Types of Data](#types-of-data)
+- [File Formats](#file-formats)
+- [Sources of Data](#sources-of-data)
+- [Data Repositories](#data-repositories)
+- [ETL vs ELT](#etl-vs-elt)
+- [Languages for Data Professionals](#languages-for-data-professionals)
+- [Metadata and Metadata Management](#metadata-and-metadata-management)
+- [Big Data: The 5 V's](#big-data-the-5-vs)
+- [Big Data Tools](#big-data-tools)
+- [📖 Key Terms & Glossary](#-key-terms--glossary)
+- [❓ My Questions & Gaps](#-my-questions--gaps)
+- [🔗 Resources](#-resources)
+
+---
+
+## Overview
+
+This lesson maps the building blocks of the data engineering ecosystem: the types and formats data can take, where it comes from, and where it's stored (RDBMS, NoSQL, warehouses, lakes, lakehouses). It then covers how data moves and transforms via ETL vs. ELT, the languages data professionals rely on, how metadata supports governance and lineage, and how Big Data's 5 V's and its core tooling (Hadoop, Hive, Spark) extend these concepts at scale.
 
 ---
 

@@ -7,6 +7,23 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [String Formatting Methods](#string-formatting-methods)
+- [Raw Strings (r'')](#raw-strings-r)
+- [📖 Key Terms & Glossary](#-key-terms--glossary)
+- [❓ My Questions & Gaps](#-my-questions--gaps)
+- [🔗 Resources](#-resources)
+
+---
+
+## Overview
+
+This lesson covers the three ways Python can inject variables into strings — f-strings, `str.format()`, and the legacy `%` operator — and compares them for readability and capability. It also introduces raw strings, which stop Python from interpreting backslashes as escape sequences, most useful for file paths and regex patterns.
+
+---
+
 ## String Formatting Methods
 
 Python provides three main ways to inject variables into strings.
@@ -85,6 +102,18 @@ raw_string = r"C:\new_folder\file.txt"
 print("Raw String:", raw_string)
 # Raw String: C:\new_folder\file.txt   ← backslash treated literally
 ```
+
+---
+
+## 📖 Key Terms & Glossary
+
+| Term            | Definition                                                                       |
+| ---------------- | --------------------------------------------------------------------------------- |
+| F-string          | Python 3.6+ string prefix (`f"..."`) that interpolates variables/expressions inline |
+| `str.format()`    | String method that fills `{}` placeholders with arguments passed to `.format()`   |
+| `%` Operator       | Legacy C-style string formatting using specifiers like `%s`, `%d`, `%f`           |
+| Raw String        | A string prefixed with `r` where backslashes are treated as literal characters    |
+| Escape Sequence   | A backslash-prefixed character (e.g. `\n`, `\t`) interpreted specially by Python  |
 
 ---
 

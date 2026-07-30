@@ -7,6 +7,25 @@
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Career Opportunities in Data Engineering](#career-opportunities-in-data-engineering)
+- [Data Warehousing Specialist](#data-warehousing-specialist)
+- [Data Manager — Data-Related Roles in Organizations](#data-manager--data-related-roles-in-organizations)
+- [Data Engineering Learning Path](#data-engineering-learning-path)
+- [📖 Key Terms & Glossary](#-key-terms--glossary)
+- [❓ My Questions & Gaps](#-my-questions--gaps)
+- [🔗 Resources](#-resources)
+
+---
+
+## Overview
+
+This lesson surveys the data engineering job market and the roles that branch off it — job titles, typical career progression, and emerging positions like Big Data Engineer and ML Engineer. It profiles the Data Warehousing Specialist as a concrete specialization, maps how technical, analytical, governance, and leadership roles relate to one another (and how AI is expected to reshape each), and closes with practical entry routes into the field.
+
+---
+
 ## Career Opportunities in Data Engineering
 
 ### Job Market Overview
@@ -194,6 +213,19 @@ Junior/Associate → Data Warehouse Specialist → Senior → Lead → Principal
 ### Key Mindset
 
 Data Engineering is a **fast-moving field** — curiosity, openness to learning, and excitement about technology are as important as technical skills.
+
+---
+
+## 📖 Key Terms & Glossary
+
+| Term                     | Definition                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| Data Warehousing Specialist | A DE specialization focused on designing, modeling, and implementing data warehouses |
+| Data Governance Associate | Entry-level governance role supporting compliance through documentation and data quality |
+| Data Steward             | Ensures data quality, integrity, and proper management; guards against AI bias        |
+| Data Ethics Steward       | Ensures data practices align with societal values and ethical principles, beyond compliance |
+| Chief Data Officer (CDO)  | Leadership role setting vision, policy, and strategy for an organization's data       |
+| Metadata Management       | Tools and practices for cataloging and tracking the origin, structure, and meaning of data |
 
 ---
 

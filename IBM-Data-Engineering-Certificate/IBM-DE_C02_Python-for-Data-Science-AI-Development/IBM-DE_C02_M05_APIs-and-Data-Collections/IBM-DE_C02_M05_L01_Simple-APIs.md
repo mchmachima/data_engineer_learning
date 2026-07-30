@@ -7,15 +7,22 @@
 
 ---
 
-## 📌 Key Concepts
+## Table of Contents
 
-- An API lets two pieces of software communicate via defined inputs and outputs — you don't need to know how the other side works internally
-- Pandas itself is an API — when you call `.head()` or `.mean()`, you're communicating with underlying software components through the pandas interface
-- REST APIs communicate over the internet using HTTP requests and JSON; the client sends a request to an endpoint, and the web service returns a response
-- A **wrapper library** (e.g. PyCoinGecko) wraps a REST API in easy Python functions so you don't have to write raw HTTP calls
-- REST API responses are typically returned as JSON, which maps directly to Python dictionaries and lists
-- UNIX timestamps in milliseconds can be converted to readable dates using `pd.to_datetime(..., unit='ms')`
-- APIs are widely used across social media, e-commerce, weather, maps, payments, and messaging — any time an app needs external data or functionality
+- [Overview](#overview)
+- [What is an API?](#what-is-an-api)
+- [REST APIs](#rest-apis)
+- [PyCoinGecko — REST API Example](#pycoingecko--rest-api-example)
+- [Applications of APIs](#applications-of-apis)
+- [📖 Key Terms & Glossary](#-key-terms--glossary)
+- [❓ My Questions & Gaps](#-my-questions--gaps)
+- [🔗 Resources](#-resources)
+
+---
+
+## Overview
+
+This lesson introduces APIs as the mechanism by which software communicates via defined inputs and outputs, using pandas as a familiar first example. It then focuses on REST APIs specifically — the client/resource/endpoint/request/response cycle over HTTP and JSON — and walks through PyCoinGecko as a hands-on wrapper-library example, before surveying the range of domains (social media, e-commerce, weather, payments) that rely on APIs.
 
 ---
 
