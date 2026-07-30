@@ -35,10 +35,13 @@ Triggered when the user pastes lesson text, a transcript, or describes what they
 4. Confirm the file path to the user after saving.
 
 **Quality rules:**
+- Language: write the note body in Thai (Overview, topic sections, glossary definitions, questions, resources). Technical terms may stay ทับศัพท์ (untranslated) where a Thai translation would be awkward or unclear (e.g. database, query, primary key).
+- Table of Contents: always in English, with real anchor links to the note's actual sections (in order: Overview, each topic by its real name, Glossary, Questions & Gaps, Resources). Generate this last, after the rest of the note is finalized, so the links are accurate.
+- Tags: add a `Tags:` line directly under the H1 title, above the metadata table — short comma-separated topic tags (e.g. `Tags: RDBMS, database`). Keep tags on their own line, separate from the metadata table.
+- Metadata (Certificate, Course, Module, Date studied): format as a table, not bullets.
 - Overview: a short 2–4 sentence paragraph, not bullets. Frame what the lesson covers and why it matters — don't repeat what the topic sections below already detail.
-- Table of Contents: generate real anchor links to the note's actual sections (in order: Overview, each topic by its real name, Glossary, Questions & Gaps, Resources). Generate this last, after the rest of the note is finalized, so the links are accurate.
 - Topic sections: name each section after the actual lesson topic (e.g. `## Lists`, `## Tuples`) — not generic names like `## Content 1`.
-- Code: embed code directly inside the relevant topic section; add a one-line comment above each block explaining what it does.
+- Code: embed code directly inside the relevant topic section; add a one-line comment above each block explaining what it does (comments stay in English).
 - Glossary: include every technical term introduced, even ones that seem obvious.
 - Questions & Gaps: infer likely confusion points if the user hasn't flagged any — phrase as open questions the user can research later.
 - If a topic has no code, skip the code block for that section — do not leave a blank block.

@@ -1,9 +1,13 @@
-# L<NN> [Lesson Title]
+# L<NN> [ชื่อบทเรียน]
 
-- **Certificate:** IBM Data Engineering Professional Certificate
-- **Course:** C<NN> [Course Name]
-- **Module:** M<NN> [Module Title]
-- **Date studied:** [YYYY-MM-DD]
+`Tags: [tag1], [tag2], [tag3]`
+
+| Field             | Value                                    |
+| ----------------- | ----------------------------------------- |
+| **Certificate**   | IBM Data Engineering Professional Certificate |
+| **Course**        | C<NN> [Course Name]                       |
+| **Module**        | M<NN> [Module Title]                      |
+| **Date studied**  | [YYYY-MM-DD]                              |
 
 ---
 
@@ -13,20 +17,21 @@
 actually present in this note, in order: Overview, each topic section (using
 its actual name), Key Terms & Glossary, My Questions & Gaps, Resources.
 Use standard GitHub-flavored markdown anchors (lowercase, spaces → hyphens,
-punctuation stripped), e.g. `- [Lists](#lists)`. Generate this last, after
-the rest of the note is finalized, so links are accurate. -->
+punctuation stripped), e.g. `- [Lists](#lists)`. Headings and links in this
+section stay in English even though the note body is in Thai. Generate this
+last, after the rest of the note is finalized, so links are accurate. -->
 
 ---
 
 ## Overview
 
-[2-4 sentence paragraph framing what this lesson covers and why it matters — not a bullet list, and not a repeat of what the topic sections below already say in detail]
+[ย่อหน้า 2-4 ประโยคภาษาไทย สรุปว่าบทเรียนนี้ครอบคลุมอะไรและสำคัญอย่างไร — ไม่ใช่ bullet list และไม่ซ้ำกับรายละเอียดที่จะอธิบายในหัวข้อย่อยด้านล่าง ศัพท์เทคนิคสามารถทับศัพท์ได้]
 
 ---
 
-## [Topic 1 Name]
+## [ชื่อหัวข้อที่ 1]
 
-[Detail and explanation of this topic]
+[คำอธิบายหัวข้อนี้เป็นภาษาไทย ศัพท์เทคนิคทับศัพท์ได้]
 
 ```python
 # [What this code does — one line description]
@@ -35,9 +40,9 @@ the rest of the note is finalized, so links are accurate. -->
 
 ---
 
-## [Topic 2 Name]
+## [ชื่อหัวข้อที่ 2]
 
-[Detail and explanation of this topic]
+[คำอธิบายหัวข้อนี้เป็นภาษาไทย ศัพท์เทคนิคทับศัพท์ได้]
 
 ```python
 # [What this code does — one line description]
@@ -48,18 +53,18 @@ the rest of the note is finalized, so links are accurate. -->
 
 ## 📖 Key Terms & Glossary
 
-| Term   | Definition                 |
-| ------ | --------------------------- |
-| [term] | [plain-English definition] |
+| Term (ศัพท์) | คำอธิบาย (ภาษาไทย) |
+| ------------- | -------------------- |
+| [term]        | [คำอธิบายแบบเข้าใจง่าย] |
 
 ---
 
 ## ❓ My Questions & Gaps
 
-- [ ] [Any concept that was unclear or needs follow-up]
+- [ ] [ประเด็นที่ยังไม่ชัดเจนหรือควรตามไปศึกษาเพิ่ม]
 
 ---
 
 ## 🔗 Resources
 
-- [Any links, docs, or tools mentioned in the lesson]
+- [ลิงก์, เอกสาร, หรือเครื่องมือที่กล่าวถึงในบทเรียน]
