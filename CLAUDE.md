@@ -26,21 +26,31 @@ Triggered when the user pastes lesson text, a transcript, or describes what they
 
 **Steps:**
 
-1. Identify the course, module, and lesson number and title from the pasted content — ask if unclear.
-2. Generate a `.md` file using the **Note Template** at `.claude/templates/note-template.md`.
-3. Save it to the correct folder path:
-   `IBM-DE_C<NN>_<Course-Name>/IBM-DE_C<NN>_M<NN>_<Module-Name>/IBM-DE_C<NN>_M<NN>_L<NN>_<Lesson-Name>.md`
-   - Create course and module folders if they do not exist
-   - e.g. `IBM-DE_C02_Python-for-Data-Science-AI-Development/IBM-DE_C02_M03_Python-Programming-Fundamentals/IBM-DE_C02_M03_L01_Conditions-and-Branching.md`
-4. Confirm the file path to the user after saving.
+1. Identify the course, module, **lesson**, and **video** number and title from the pasted content — ask if unclear. Coursera nests them as Course → Module → Lesson → Video, and the folder structure mirrors that exactly.
+2. **One video = one note file.** If the pasted content covers several videos, generate a separate `.md` file for each — do not merge them into one note.
+3. Generate each `.md` file using the **Note Template** at `.claude/templates/note-template.md`.
+4. Save it to the correct folder path:
+   `C<NN>_<Course-Name>/M<NN>_<Module-Name>/L<NN>_<Lesson-Name>/V<NN>_<Video-Title>.md`
+   - Create course, module, and lesson folders if they do not exist
+   - e.g. `C04_RDBMS/M02_Using-Relational-Databases/L02_Designing-Keys-Indexes-and-Constraints/V02_Primary-Keys-and-Foreign-Keys.md`
+5. Confirm the file path(s) to the user after saving.
 
 **Quality rules:**
-- Language: write the note body in Thai (Overview, topic sections, glossary definitions, questions, resources). Technical terms may stay ทับศัพท์ (untranslated) where a Thai translation would be awkward or unclear (e.g. database, query, primary key).
+- Language: write the note body in Thai (Overview, topic sections, glossary definitions, questions, resources). Technical terms may stay ทับศัพท์ (untranslated) where a Thai translation would be awkward or unclear (e.g. database, query, primary key). **All headings stay in English** — see the Headings rule below.
+- Headings: every heading at every level (the H1 title, `##`, `###`, and deeper) is written in English, never Thai — e.g. `## Instance and Database Hierarchy`, not `## Instance และโครงสร้างลำดับชั้นของฐานข้อมูล`. Only the body text under each heading is Thai. This keeps Table of Contents anchor links clean and consistent.
+- H1 title: the video title alone, with no `L<NN>`/`V<NN>` prefix — e.g. `# Primary Keys and Foreign Keys`. The folder path and the metadata table already carry the numbering.
 - Table of Contents: always in English, with real anchor links to the note's actual sections (in order: Overview, each topic by its real name, Glossary, Questions & Gaps, Resources). Generate this last, after the rest of the note is finalized, so the links are accurate.
 - Tags: add a `Tags:` line directly under the H1 title, above the metadata table — short comma-separated topic tags (e.g. `Tags: RDBMS, database`). Keep tags on their own line, separate from the metadata table.
-- Metadata (Certificate, Course, Module, Date studied): format as a table, not bullets.
-- Overview: a short 2–4 sentence paragraph, not bullets. Frame what the lesson covers and why it matters — don't repeat what the topic sections below already detail.
-- Topic sections: name each section after the actual lesson topic (e.g. `## Lists`, `## Tuples`) — not generic names like `## Content 1`.
+- Metadata (Certificate, Course, Module, Lesson, Date studied): format as a table, not bullets. The **Lesson** row matters because the H1 is the video title alone and no longer carries the lesson number.
+- Overview: a short 2–4 sentence paragraph, not bullets. Frame what this video covers and why it matters — don't repeat what the topic sections below already detail.
+- Diagrams & tables: use them where they make the content easier to grasp, chosen by the **shape of the content**, not added to every section:
+  - hierarchy, relationships, flow, or step sequence → **mermaid** block (`flowchart` for hierarchy/flow, `erDiagram` for table relationships)
+  - pros vs. cons, several options side by side, before/after, or several terms sharing a common axis → **markdown table**
+  - 3–5 items with no shared axis → plain **bullets**; do not force them into a table
+  - Never add a decorative diagram that explains no mechanism. If one sentence covers it, write the sentence.
+  - When the instructor walks through an example or comparison in the video, converting it into a table or diagram is encouraged.
+  - Mermaid renders on GitHub and Obsidian but not in every viewer — never let a diagram be the *only* place a fact appears; the surrounding text must still stand alone.
+- Topic sections: name each section in English after the actual lesson topic (e.g. `## Lists`, `## Tuples`) — not generic names like `## Content 1`, and not translated into Thai.
 - Code: embed code directly inside the relevant topic section; add a one-line comment above each block explaining what it does (comments stay in English).
 - Glossary: include every technical term introduced, even ones that seem obvious.
 - Questions & Gaps: infer likely confusion points if the user hasn't flagged any — phrase as open questions the user can research later.
@@ -116,33 +126,49 @@ Triggered when the user asks about their plan, schedule, timeline, or weekly goa
 ## Folder and File Structure
 
 ```
-IBM-Data-Engineering-Certificate/
-├── CLAUDE.md                               ← this file
-├── Study-Plan.md                           ← study plan (root level)
-├── IBM-DE_C01_Introduction-to-Data-Engineering/
-│   └── IBM-DE_C01_M01_What-is-Data-Engineering/
-│       └── IBM-DE_C01_M01_L01_Modern-Data-Ecosystem.md
-├── IBM-DE_C02_Python-for-Data-Science-AI-Development/
-│   ├── IBM-DE_C02_M01_Python-Basics/
-│   │   ├── IBM-DE_C02_M01_L01_Types.md
-│   │   ├── IBM-DE_C02_M01_L02_Expressions-and-Variables.md
-│   │   └── IBM-DE_C02_M01_L03_String-Operations.md
-│   └── IBM-DE_C02_M02_Python-Data-Structures/
-│       ├── IBM-DE_C02_M02_L01_Lists.md
-│       └── IBM-DE_C02_M02_L02_Tuples.md
-└── ...
+data_engineer_learning/                       ← repo root
+├── CLAUDE.md                                 ← this file
+├── Study-Plan.md                             ← study plan
+├── .claude/
+│   ├── commands/
+│   └── templates/
+│       ├── note-template.md
+│       └── study-plan-template.md
+└── IBM-Data-Engineering-Certificate/
+    ├── C01_Introduction-to-Data-Engineering/
+    │   └── M01_What-is-Data-Engineering/
+    │       └── L01_Modern-Data-Ecosystem-and-Roles/       ← multi-video lesson → folder
+    │           ├── V01_Modern-Data-Ecosystem.md
+    │           └── V02_Key-Roles-in-the-Data-Ecosystem.md
+    ├── C02_Python-for-Data-Science-AI-Development/
+    │   └── M01_Python-Basic/
+    │       └── L01_Types.ipynb                            ← single-video lesson → flat file, no folder
+    ├── C03_Python-Project-for-Data-Engineer/
+    │   ├── M01_Extract-Transform-Load/
+    │   │   └── hands-on-lab-etl.md                          ← Hands-on-Lab file, name protected, see Naming Rules
+    │   └── M02_Final-Project/
+    │       ├── etl_project_gdp.ipynb
+    │       ├── etl_project_gdp.py
+    │       └── lab-instructions.md                          ← lab-instructions file, name protected, see Naming Rules
+    └── C04_RDBMS/
+        └── M02_Using-Relational-Databases/
+            └── L02_Designing-Keys-Indexes-and-Constraints/
+                ├── V01_Database-Objects-and-Hierarchy-Including-Schemas.md
+                └── V02_Primary-Keys-and-Foreign-Keys.md
 ```
-
-The Note Template and Plan Template live at `.claude/templates/note-template.md` and `.claude/templates/study-plan-template.md` (repo root, alongside `.claude/commands/`), not inside `IBM-Data-Engineering-Certificate/`.
 
 ## File Naming Rules
 
-- All numbers zero-padded to 2 digits: `C01`, `M02`, `L03`
-- Always include `L<NN>` even if a module has only one lesson — use `L01` for consistency
+- All numbers zero-padded to 2 digits: `C01`, `M02`, `L03`, `V02`
+- No `IBM-DE_` prefix on folders or filenames — the repo is already scoped to this certificate, and the path itself carries the course/module/lesson context
+- **Multi-video lesson → folder.** If a lesson has more than one video, it is always a folder: `L01_Title/` holding one `.md`/`.ipynb` per video (`V01_Title.md`, `V02_Title.md`, …); never merge multiple videos into one note.
+- **Single-video lesson → flat file, no folder.** If a lesson has only one video, skip the lesson folder and the `V01_` split — save it directly as `L01_Title.md` (or `.ipynb`) in the module folder.
 - Title-Case with hyphens, no spaces: `Python-Data-Structures`
 - Fully descriptive: `Introduction-to-Relational-Databases` not `Intro-RDBMS`
 - No apostrophes, special characters, or dots in filenames
-- Always create course and module folders if they do not exist
+- Always create course, module, and lesson folders if they do not exist
+- **Never rename, restructure, or reformat files matching `hands-on-lab*` or `lab-instructions.md` (strict lowercase — e.g. `hands-on-lab-etl.md`, not `Hands-on-Lab-ETL.md`)** — these are raw lab dumps, not notes generated from the template, and `/note` must leave them untouched
+- This protection covers matched **file names only** — the folders containing them (e.g. a `Final-Project`/lab module folder) still follow the current `M0N_`/`L0N_` naming scheme and should be renamed to match when a course is brought up to date
 
 ---
 

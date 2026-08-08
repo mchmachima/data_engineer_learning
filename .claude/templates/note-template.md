@@ -1,4 +1,4 @@
-# L<NN> [ชื่อบทเรียน]
+# [Video Title in English]
 
 `Tags: [tag1], [tag2], [tag3]`
 
@@ -7,6 +7,7 @@
 | **Certificate**   | IBM Data Engineering Professional Certificate |
 | **Course**        | C<NN> [Course Name]                       |
 | **Module**        | M<NN> [Module Title]                      |
+| **Lesson**        | L<NN> [Lesson Title]                      |
 | **Date studied**  | [YYYY-MM-DD]                              |
 
 ---
@@ -17,9 +18,10 @@
 actually present in this note, in order: Overview, each topic section (using
 its actual name), Key Terms & Glossary, My Questions & Gaps, Resources.
 Use standard GitHub-flavored markdown anchors (lowercase, spaces → hyphens,
-punctuation stripped), e.g. `- [Lists](#lists)`. Headings and links in this
-section stay in English even though the note body is in Thai. Generate this
-last, after the rest of the note is finalized, so links are accurate. -->
+punctuation stripped), e.g. `- [Lists](#lists)`. ALL headings in this note are
+written in English (never Thai) — only the body text under them is Thai — so
+these anchors are always plain ASCII. Generate this section last, after the
+rest of the note is finalized, so links are accurate. -->
 
 ---
 
@@ -29,7 +31,7 @@ last, after the rest of the note is finalized, so links are accurate. -->
 
 ---
 
-## [ชื่อหัวข้อที่ 1]
+## [Topic Title 1 — heading in English, always]
 
 [คำอธิบายหัวข้อนี้เป็นภาษาไทย ศัพท์เทคนิคทับศัพท์ได้]
 
@@ -40,7 +42,7 @@ last, after the rest of the note is finalized, so links are accurate. -->
 
 ---
 
-## [ชื่อหัวข้อที่ 2]
+## [Topic Title 2 — heading in English, always]
 
 [คำอธิบายหัวข้อนี้เป็นภาษาไทย ศัพท์เทคนิคทับศัพท์ได้]
 
