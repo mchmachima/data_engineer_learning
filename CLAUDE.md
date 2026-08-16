@@ -85,6 +85,21 @@ Triggered when the user asks about their plan, schedule, timeline, or weekly goa
 
 ---
 
+### Mode 3 — Cheat Sheet
+
+Triggered when the user pastes cheat-sheet-style reference content — topic/syntax/description/example tables (SQL, Python, shell, or any other language), not a video transcript.
+
+**Steps:**
+1. Identify the course, module, and lesson the cheat sheet belongs to — ask if unclear.
+2. Treat the content as raw reference material, not a lesson note — **skip the note template entirely** (no Overview, Table of Contents, Thai body text, or glossary section).
+3. Preserve the content faithfully: keep it in its original language (usually English), don't translate to Thai, and don't summarize or compress the table.
+4. Save as `<language>-cheat-sheet-<topic>.md` (lowercase-hyphen, e.g. `sql-cheat-sheet-join-statements.md`, `python-cheat-sheet-string-operations.md`) directly in the relevant lesson folder.
+5. If source content is visibly truncated or garbled in the paste, flag it inline (e.g. `*(truncated in source)*`) rather than inventing content to fill the gap.
+6. Do **not** add cheat sheet terms to `GLOSSARY.md` — that's reserved for terms introduced in video lesson notes.
+7. Confirm the file path to the user after saving.
+
+---
+
 ## Handling Ambiguous Requests
 
 | User says                  | What to do                                              |
@@ -175,7 +190,7 @@ data_engineer_learning/                       ← repo root
 - Fully descriptive: `Introduction-to-Relational-Databases` not `Intro-RDBMS`
 - No apostrophes, special characters, or dots in filenames
 - Always create course, module, and lesson folders if they do not exist
-- **Never rename, restructure, or reformat files matching `hands-on-lab*` or `lab-instructions.md` (strict lowercase — e.g. `hands-on-lab-etl.md`, not `Hands-on-Lab-ETL.md`)** — these are raw lab dumps, not notes generated from the template, and `/note` must leave them untouched
+- **Never rename, restructure, or reformat files matching `hands-on-lab*`, `lab-instructions.md`, or `*-cheat-sheet-*` (strict lowercase — e.g. `hands-on-lab-etl.md`, not `Hands-on-Lab-ETL.md`)** — these are raw dumps, not notes generated from the template, and `/note` must leave them untouched
 - This protection covers matched **file names only** — the folders containing them (e.g. a `Final-Project`/lab module folder) still follow the current `M0N_`/`L0N_` naming scheme and should be renamed to match when a course is brought up to date
 
 ---
