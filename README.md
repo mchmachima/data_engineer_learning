@@ -14,6 +14,7 @@ A personal study repo for completing the **IBM Data Engineering Professional Cer
 data_engineer_learning/
 ├── CLAUDE.md                  # Claude Code instructions for this repo (note/plan generation rules)
 ├── Study-Plan.md              # Current study plan and weekly schedule
+├── GLOSSARY.md                 # Master glossary aggregated from every note's Key Terms section
 ├── .claude/
 │   ├── commands/
 │   └── templates/              # Templates used to generate lesson notes and the study plan
@@ -29,12 +30,13 @@ Each course folder is broken down as `C<NN>_<Course-Name>/M<NN>_<Module-Name>/L<
 
 ## Notes format
 
-Each lesson note is written from a video transcript and includes: an overview, topic sections (with diagrams/tables where useful), a glossary of key terms, a "Questions & Gaps" section, and resources. Note bodies are written in Thai; headings stay in English for consistent navigation.
+Each lesson note is written from a video transcript and includes: an overview, topic sections (with diagrams/tables where useful), a glossary of key terms, a "Questions & Gaps" section, and resources. Note bodies are written in Thai; headings stay in English for consistent navigation. Cheat-sheet-style reference content (syntax/example tables) is saved as-is, without the note template, under `<language>-cheat-sheet-<topic>.md`.
 
 ## How notes/plan get generated
 
 This repo is set up to work with Claude Code:
 - Paste lesson content → generates one note per video (`note` skill).
+- Paste cheat-sheet reference content → saves it faithfully (`cheat-sheet` skill).
 - Ask about schedule/timeline → regenerates `Study-Plan.md` (`plan` skill).
 
 See `CLAUDE.md` for the full rules these follow.
