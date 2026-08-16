@@ -61,6 +61,12 @@ Triggered when the user pastes lesson text, a transcript, or describes what they
 - Code: embed code directly inside the relevant topic section; add a one-line comment above each block explaining what it does (comments stay in English).
 - Glossary: include every technical term introduced, even ones that seem obvious.
 - Questions & Gaps: infer likely confusion points if the user hasn't flagged any — phrase as open questions the user can research later.
+- Answering a Questions & Gaps item: check the box (`- [x]`) and add the answer as a **nested bullet on a new line** directly under that question, prefixed with `**คำตอบ:**` — e.g.:
+  ```
+  - [x] คำถาม...
+    - **คำตอบ:** คำตอบเป็นภาษาไทย...
+  ```
+  Never append the answer inline after the question or as an unindented paragraph. See `C06_.../M01_Introduction-to-Linux/L04_Linux-Terminal-Overview.md` for the reference format.
 - If a topic has no code, skip the code block for that section — do not leave a blank block.
 - If content is very short (e.g. a single short lesson), it's fine to have a lean file — don't pad it.
 
