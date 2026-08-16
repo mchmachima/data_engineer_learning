@@ -1,7 +1,7 @@
 # Data Engineering Study Plan
 
 **Updated:** 2026-08-16
-**Current position:** IBM DE Cert — Course 05 ✅ Complete → Course 06 (Hands-on Introduction to Linux Commands and Shell Scripting) In Progress
+**Current position:** IBM DE Cert — Course 06 (Hands-on Introduction to Linux Commands and Shell Scripting) In Progress — Module 01 ✅ Complete, Module 02 next
 **Target:** Complete IBM cert by Sep–Oct 2026 → Job search → Azure Databricks
 
 > ⚠️ **Pacing note:** Course 05 finished ahead of schedule (all 6 modules done by Aug 16 instead of Aug 30). User is now mid-Course 06 and has set a hard target of finishing Course 06 within **1 week (by Aug 23)** — compressing 4 modules into 1 week instead of the default 1-module/week pace. This pulls the whole remaining plan back **2 weeks earlier** than the previous estimate: cert finish now lands **around Nov 30 – Dec 6, 2026**, versus the prior ~Dec 20, 2026 estimate. Keep this pace to hold the new date.
@@ -117,7 +117,7 @@
 
 **Goal:** Course 06 — Hands-on Introduction to Linux Commands and Shell Scripting (complete all 4 modules)
 
-- [ ] Module 01: Introduction to Linux — 40 min videos, 40 min readings, 1 graded assessment
+- [x] Module 01: Introduction to Linux — 40 min videos, 40 min readings, 1 graded assessment
 - [ ] Module 02: Introduction to Linux Commands — 48 min videos, 47 min readings, 1 graded assessment
 - [ ] Module 03: Introduction to Shell Scripting — 18 min videos, 1h 7m readings, 1 graded assessment
 - [ ] Module 04: Final Project — 35 min readings, 3 graded assessments
