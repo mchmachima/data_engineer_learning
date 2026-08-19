@@ -40,7 +40,8 @@ Triggered when the user pastes lesson text, a transcript, or describes what they
    - If the term already exists with essentially the same definition, don't duplicate the row — append the new note's link to the existing Source cell, separated by `<br>`.
    - If the term already exists but this note's definition differs meaningfully (the term is overloaded/context-specific), add it as a separate row rather than forcing a merge.
    - Never hand-edit a Thai definition when merging — copy it verbatim from the source note.
-6. Confirm the file path(s) to the user after saving, and mention if `GLOSSARY.md` was updated.
+6. **Update `INDEX.md`** at the repo root: add a link to the new video note under its Course/Module/Lesson section (create the section headings if the course/module isn't listed yet), following the existing nested-bullet structure (one `- [Vnn Title](path)` per video, nested under a `**Lnn · Title**` bullet when the lesson has multiple videos).
+7. Confirm the file path(s) to the user after saving, and mention if `GLOSSARY.md` and `INDEX.md` were updated.
 
 **Quality rules:**
 - Language: write the note body in Thai (Overview, topic sections, glossary definitions, questions, resources). Technical terms may stay ทับศัพท์ (untranslated) where a Thai translation would be awkward or unclear (e.g. database, query, primary key). **All headings stay in English** — see the Headings rule below.
